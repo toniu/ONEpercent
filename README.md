@@ -24,6 +24,6 @@ Technology Stack: Scala
 ## Output screenshots:
 Introduction to the game, the contestants of the game: ![os-1](screenshots/output-intro.png) 
 Quiz question selected from particular category: ![os-2](screenshots/output-qn.png) 
-(For debugging only) A breakdown of the probability simulator to determine of a CPU user passed the round: ![os-3](screenshots/output-qn.png) 
+(For debugging only) A breakdown of the probability simulator to determine of a CPU user passed the round: ![os-3](screenshots/output-db.png) 
 Eliminated and Remaining players: ![os-4](screenshots/output-update.png)
 Conclusion to game, one contestant winner: ![os-5](screenshots/output-final.png) 
