@@ -10,7 +10,7 @@ object DataLoader {
     def loadPlayers(filename: String): List[Player] = {
         val players = Source.fromFile(filename).getLines().toList.tail // Skip the first line
         val shuffledPlayers = Random.shuffle(players)
-        val selectedPlayers = shuffledPlayers.take(50) // Take the first 99 players
+        val selectedPlayers = shuffledPlayers.take(99) // Take the first 99 players
         /* The player's attributes:
         Name of player
         The location they are from (based in UK)

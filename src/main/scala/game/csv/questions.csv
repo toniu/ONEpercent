@@ -33,3 +33,38 @@ question,options,answer,category,difficulty
 "What is the currency of India",Rupee;Peso;Euro;Dollar,a,GEN,99
 "In which year did the French Revolution begin",1789;1776;1800;1812,a,GEN,99
 "What is the largest mammal in the world",Blue whale;Elephant;Giraffe;Hippopotamus,a,GEN,45
+"What year was the very first model of the iPhone released?",2006;2007;2008;2009,b,TEC,20
+"What’s the shortcut for the “copy” function on most computers?",ctrl c;alt c;shift c;ctrl v,a,TEC,15
+"What is often seen as the smallest unit of memory?",megabyte;kilobyte;gigabyte;terabyte,b,TEC,25
+"Is Java a type of OS?",Yes;No,b,TEC,10
+"Who is often called the father of the computer?",Bill Gates;Steve Jobs;Charles Babbage;Alan Turing,c,TEC,30
+"What does “HTTP” stand for?",HyperText Transfer Protocol;High Tech Transfer Protocol;HyperTransfer Text Protocol;High Tech Text Protocol,a,TEC,25
+"What is the name of the man who launched eBay back in 1995?",Mark Zuckerberg;Pierre Omidyar;Jeff Bezos;Larry Page,b,TEC,30
+"Which email service is owned by Microsoft?",Gmail;Outlook;Yahoo;Hotmail,d,TEC,20
+"Google Chrome, Safari, Firefox, and Explorer are different types of what?",Operating systems;Web browsers;Antivirus software;Search engines,b,TEC,20
+"What was Twitter’s original name?",twtr;tweet;chirp;blurt,a,TEC,15
+"Which programming language is often used for developing Android applications?",Python;Java;C++;JavaScript,b,TEC,25
+"What is the name of the open-source operating system created by Linus Torvalds?",Windows;Linux;macOS;Unix,b,TEC,30
+"In the context of email, what does “CC” stand for?",Copy Cat;Carbon Copy;Courtesy Copy;Common Communication,b,TEC,25
+"In computing, what does “CPU” stand for?",Central Processing Unit;Central Programming Unit;Computer Processing Unit;Control Processing Unit,a,TEC,30
+"Which company developed the first commercially available computer mouse?",Apple;IBM;Microsoft;Xerox,d,TEC,30
+"Who discovered penicillin?",Alexander Fleming;Marie Curie;Louis Pasteur;Florence Nightingale,a,TEC,25
+"Who was the first woman to win a Nobel Prize (in 1903)?",Marie Curie;Rosalind Franklin;Ada Lovelace;Elizabeth Blackwell,a,TEC,30
+"What part of the atom has no electric charge?",Neutron;Proton;Electron;Nucleus,a,TEC,30
+"What is the symbol for potassium?",K;Pt;P;Kt,a,TEC,20
+"What is meteorology the study of?",The weather;Volcanoes;Tectonic plates;Ocean currents,a,TEC,20
+"Which planet is the hottest in the solar system?",Venus;Mercury;Mars;Earth,a,TEC,25
+"Which natural disaster is measured with a Richter scale?",Earthquakes;Hurricanes;Tornadoes;Floods,a,TEC,25
+"What animals are pearls found in?",Oysters;Clams;Mussels;Scallops,a,TEC,20
+"Which planet has the most gravity?",Jupiter;Saturn;Neptune;Uranus,a,TEC,30
+"How many molecules of oxygen does ozone have?",Three;Two;One;Four,a,TEC,25
+"How many soccer players should each team have on the field at the start of each match?",10;11;8;9,b,SPO,25
+"When Michael Jordan played for the Chicago Bulls, how many NBA Championships did he win?",Three;Five;Four;Six,d,SPO,30
+"Which Williams sister has won more Grand Slam titles?",Both have won the same number;Neither has won any;Serena;Venus,a,SPO,30
+"What country won the very first FIFA World Cup in 1930?",Brazil;Uruguay;Italy;Argentina,b,SPO,80
+"In what year was the first-ever Wimbledon Championship held?",1900;1910;1880;1877,c,SPO,20
+"Which racer holds the record for the most Grand Prix wins?",Sebastian Vettel;Michael Schumacher;Lewis Hamilton;Ayrton Senna,c,SPO,45
+"Which Jamaican runner is an 11-time world champion and holds the record in the 100 and 200-meter race?",Asafa Powell;Yohan Blake;Justin Gatlin;Usain Bolt,d,SPO,50
+"Which boxer was known as “The Greatest” and “The People’s Champion”?",Mike Tyson;Joe Louis;Floyd Mayweather;Muhammad Ali,d,SPO,50
+"What sport was Jesse Owens involved in?",Boxing;Track and field;Basketball;Football,b,SPO,45
+"Which hockey team did Wayne Gretzky play for in the ‘80s?",Los Angeles Kings;New York Rangers;Pittsburgh Penguins;Edmonton Oilers,d,SPO,75

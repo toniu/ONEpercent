@@ -20,3 +20,10 @@ Technology Stack: Scala
 * Extracted from the CSV data of players and questions. 99 players randomly selected from the pool of players, and question selected per round e.g. a question of 10 difficulty, the next of 20 difficulty, the next of 30 difficulty, all up until a question of 99 difficulty etc.
 * The players: randomly generated names with varied ratings which give their probability of doing well in the game-show; example format: “Thomas,68”
 * The questions: the question, options, answer, category, difficulty (0-100 from easy to difficult); example format: “What is 1+1, ‘2;3;-1;4’, a, MAT, 10”
+
+## Output screenshots:
+Introduction to the game, the contestants of the game: ![os-1](screenshots/output-intro.png) 
+Quiz question selected from particular category: ![os-2](screenshots/output-qn.png) 
+(For debugging only) A breakdown of the probability simulator to determine of a CPU user passed the round: ![os-3](screenshots/output-qn.png) 
+Eliminated and Remaining players: ![os-4](screenshots/output-update.png)
+Conclusion to game, one contestant winner: ![os-5](screenshots/output-final.png) 
