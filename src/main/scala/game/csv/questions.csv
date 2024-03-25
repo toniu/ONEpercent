@@ -1,0 +1,35 @@
+question,options,answer,category,difficulty
+"What is the currency of Japan",Dollar;Yen;Pound;Euro,b,GEN,5
+"What is the capital of France",Paris;Rome;Berlin;Madrid,a,GEN,5
+"What is the chemical symbol for water",H2O;CO2;NaCl;O2,a,GEN,5
+"Which planet is known as the 'Red Planet'",Mars;Venus;Jupiter;Saturn,a,GEN,5
+"What is the currency of Japan",Yen;Dollar;Euro;Pound,b,GEN,5
+"What is the tallest mammal in the world",Giraffe;Elephant;Hippo;Rhino,a,GEN,45
+"Who painted the Mona Lisa",Leonardo da Vinci;Vincent van Gogh;Pablo Picasso;Michelangelo,a,GEN,5
+"What is the largest ocean in the world",Pacific Ocean;Atlantic Ocean;Indian Ocean;Arctic Ocean,a,GEN,5
+"In which year did the Titanic sink",1912;1905;1920;1898,a,GEN,50
+"What is the chemical symbol for gold",Au;Ag;Fe;Cu,a,GEN,10
+"What is the capital of Italy",Rome;Paris;Berlin;Madrid,a,GEN,10
+"What is the currency of Australia",Dollar;Yen;Pound;Euro,a,GEN,15
+"In which year did World War II end",1945;1918;1939;1950,a,GEN,30
+"What is the largest desert in the world",Sahara;Arabian;Gobi;Kalahari,a,GEN,10
+"What is the chemical symbol for silver",Ag;Au;Fe;Cu,a,GEN,15
+"What is the capital of Canada",Ottawa;Toronto;Montreal;Vancouver,a,GEN,15
+"What is the currency of Brazil",Real;Peso;Euro;Dollar,a,GEN,30
+"In which year did the United States declare independence",1776;1789;1800;1812,a,GEN,15
+"What is the world's longest river",Nile;Amazon;Yangtze;Mississippi,a,GEN,25
+"What is the chemical symbol for iron",Fe;Ag;Au;Cu,a,GEN,25
+"What is the capital of Argentina",Buenos Aires;Rio de Janeiro;Santiago;Lima,a,GEN,30
+"What is the currency of South Africa",Rand;Peso;Euro;Dollar,a,GEN,45
+"In which year did the Berlin Wall fall",1989;1991;1985;1995,a,GEN,50
+"What is the deepest ocean trench in the world",Mariana Trench;Puerto Rico Trench;Java Trench;Molloy Deep,a,GEN,25
+"What is the chemical symbol for copper",Cu;Ag;Au;Fe,a,GEN,60
+"What is the capital of Egypt",Cairo;Alexandria;Giza;Luxor,a,GEN,75
+"What is the currency of Russia",Ruble;Peso;Euro;Dollar,a,GEN,75
+"In which year did Nelson Mandela become president of South Africa",1994;1990;1985;2000,a,GEN,80
+"What is the highest mountain in Africa",Mount Kilimanjaro;Mount Kenya;Mount Elgon;Mount Meru,a,GEN,80
+"What is the chemical symbol for uranium",Ag;U;Au;Fe,b,GEN,90
+"What is the capital of Turkey",Ankara;Istanbul;Izmir;Antalya,a,GEN,90
+"What is the currency of India",Rupee;Peso;Euro;Dollar,a,GEN,99
+"In which year did the French Revolution begin",1789;1776;1800;1812,a,GEN,99
+"What is the largest mammal in the world",Blue whale;Elephant;Giraffe;Hippopotamus,a,GEN,45
