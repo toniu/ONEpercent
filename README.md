@@ -16,10 +16,28 @@ Technology Stack: Scala
 * Using a “Pass”: Each player has one “pass” they can use throughout the whole game, which will guarantee them into the next round, however it cannot be used if the game is reduced to the final 25 players.
 * The end of the game: The remaining user who manages to stay in the game wins.
 
+## Trivia Categories (with 3-digit CODE):
+* (GEN) General Knowledge
+* (SPO) Sports & Entertainment
+* (MUS) Music & Arts
+* (MAT) Mathematics & Geometry
+* (LAN) Language & Literature
+* (TEC) Technology & Science
+* (GEO) Geography & Nature
+* (HIS) History & Poltiics
+* (REC) Religion & Culture
+
 ## Game data:
-* Extracted from the CSV data of players and questions. 99 players randomly selected from the pool of players, and question selected per round e.g. a question of 10 difficulty, the next of 20 difficulty, the next of 30 difficulty, all up until a question of 99 difficulty etc.
-* The players: randomly generated names with varied ratings which give their probability of doing well in the game-show; example format: “Thomas,68”
-* The questions: the question, options, answer, category, difficulty (0-100 from easy to difficult); example format: “What is 1+1, ‘2;3;-1;4’, a, MAT, 10”
+* Extracted from the CSV data of players, questions and categories. 99 players randomly selected from the pool of players, and question selected per round e.g. a question of 10 difficulty, the next of 20 difficulty, the next of 30 difficulty, all up until a question of 99 difficulty etc.
+* The players: Contains information about players participating in the game-show. Each row represents a player with their name location, and ratings in different categories out of 100 (GEN, SPO, MUS, MAT, LAN, TEC, GEO, HIS, REC).
+    * Example format: The header row is "name,location,GEN,SPO,MUS,MAT,LAN,TEC,GEO,HIS,REC"
+    * Example player “Maria,London,75,23,32,94,28,12,31,82,91”. Maria's ability on general knowledge (75), sports & entertainment (23), music & arts (32), mathematics & geomatry (94), language & literature (28), technology & science (12), geography & nature (31), history politics (82), religion & culture (91)
+* The questions: Holds the questions for the game-show. Each row represents a question with its options, correct answer category, and difficulty level. (0-100 from easy to difficult);
+    * Example format: The header row is "question,options,answer,category,difficulty"
+    * Example question: “What is 1+1, ‘2;3;-1;4’, a, MAT, 10”
+* The categories: Provides a mapping between category codes and their corresponding names
+    * Example format: The header row is "code,name"
+    * Example category: "MAT,Mathematics & Geometry" The code for the category "Mathematics & Geometry"
 
 ## Output screenshots:
 Introduction to the game, the contestants of the game: ![os-1](screenshots/output-intro.png) 
