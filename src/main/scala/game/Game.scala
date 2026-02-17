@@ -177,6 +177,29 @@ object Game {
     }
   }
 
+  def simulateAnswersGUI(question: Question, remainingPlayers: List[Player], userEliminated: Boolean): List[Player] = {
+    remainingPlayers.filterNot { player =>
+      if (player == Player("You", "", 0, 0, 0, 0, 0, 0, 0, 0, 0)) {
+        !(userEliminated)
+      } else {
+        val categoryRating = getCategoryRating(player, question.category)
+        val probability = categoryRating / 100.0
+        /* The factors of the player's outcome depend on their ability on the category and the difficulty of the question */
+        val difficultyShift = probability + ((1 - (question.difficulty / 100)) * 0.18)
+        val roundedDS = BigDecimal(difficultyShift)
+          .setScale(2, BigDecimal.RoundingMode.HALF_UP)
+          .toDouble
+          .min(0.90)
+        val randomiser = BigDecimal(Random.nextDouble()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+
+        /* Eliminate based on randomiser */
+        val playerEliminated = (randomiser > roundedDS)
+
+        !(playerEliminated)
+      }
+    }
+  }
+
   def getCategoryRating(player: Player, category: String): Int = {
     category match {
       case "GEN" => player.GEN
