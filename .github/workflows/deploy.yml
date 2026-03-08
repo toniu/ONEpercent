@@ -13,15 +13,12 @@ jobs:
       deployments: write
 
     steps:
-      # 1. Checkout repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Scala (includes sbt)
-      - name: Setup Scala
+      - name: Setup Scala (includes sbt)
         uses: olafurpg/setup-scala@v13
 
-      # 3. Setup Java (required by sbt)
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -29,22 +26,18 @@ jobs:
           java-version: 17
           cache: sbt
 
-      # 4. Setup Node.js (for npm + webpack)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
 
-      # 5. Install npm dependencies
       - name: Install npm dependencies
         run: npm install
 
-      # 6. Build Scala.js + webpack
       - name: Build Scala.js + webpack
         run: sbt 'Compile / fastOptJS / webpack'
 
-      # 7. Assemble pre-built deploy folder
       - name: Assemble deploy folder
         run: |
           mkdir -p dist
@@ -56,10 +49,9 @@ jobs:
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
 
-      # 8. Deploy pre-built folder to Cloudflare Pages via Direct Upload
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=one-percent
+          command: pages deploy dist --project-name=one-percent --commit-dirty=true
