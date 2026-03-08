@@ -1,0 +1,50 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: sbt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Scala.js + webpack
+        run: sbt 'Compile / fastOptJS / webpack'
+
+      - name: Assemble deploy folder
+        run: |
+          mkdir -p dist
+          cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-bundle.js dist/
+          cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-library.js dist/
+          cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-loader.js dist/
+          cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-entrypoint.js dist/
+          cp src/main/resources/index.html dist/
+          cp src/main/resources/style.css dist/
+          cp -r src/main/resources/logos dist/
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=one-percent

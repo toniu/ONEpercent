@@ -9,7 +9,9 @@
     "stop": "lsof -ti:8080 | xargs kill -9 2>/dev/null && echo '🛑 Server stopped' || echo 'No server on port 8080'",
     "start": "npm run build && npm run copy && echo '\\n✅ Build complete — serving on http://localhost:8080\\n' && npm run serve",
     "restart": "npm run stop && npm run copy && npm run serve",
-    "dev": "npm run stop && npm run build && npm run copy && npm run serve"
+    "dev": "npm run stop && npm run build && npm run copy && npm run serve",
+    "dist": "npm run build && mkdir -p dist && cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-bundle.js target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-library.js target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-loader.js target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-entrypoint.js dist/ && cp src/main/resources/index.html src/main/resources/style.css dist/ && cp -r src/main/resources/logos dist/ && echo '📦 dist/ ready'",
+    "deploy": "npm run dist && npx wrangler pages deploy dist --project-name=one-percent"
   },
   "private": true
 }

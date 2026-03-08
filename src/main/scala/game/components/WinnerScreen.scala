@@ -118,7 +118,7 @@ import game.Player
             div(className := "trophy-icon pulse",
               dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophyLarge)
             ),
-            h1(className := "winner-title")(s"THE ${winners.length}%"),
+            h1(className := "winner-title")(s"THE ONE%"),
             p(className := "winner-subtitle")(s"${winners.length} CHAMPIONS"),
             div(className := "separator"),
             div(className := "winners-list")(
