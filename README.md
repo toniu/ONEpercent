@@ -1,47 +1,180 @@
-# ONE% Scala game-show
+# ONE% — Game Show Simulator
 
-A Scala game-show program inspired by the ITV game-show, The 1% club. The game structure involves 100 players (the user called ‘You’ and 99 other ‘CPU’ players) who attempt to answer a question in each round.
+A browser-based game show simulator inspired by ITV's The 1% Club, built with
+Scala.js, Slinky and React. 100 contestants answer questions of increasing
+difficulty across 12 rounds — be the last one standing to become the ONE%.
 
-Technology Stack: Scala
+> **Built with:** Scala 2.13 · Scala.js · Slinky · React 17 · Webpack 5 · GitHub Actions · Cloudflare Pages
 
-![logo](screenshots/project-onepercent.png)
+### [View Live Demo](https://one-percent.pages.dev)
 
-## Game structure:
-* Rounds: (based on difficulty) 5, 10, 15, 25, 30, 45, 50, 60, 75, 80, 90, 99
-* Each round: a question is given with a timer, the players must answer the question, whoever gets the answer correct, remains in the game; whoever gets the answer incorrect is eliminated from the game. The question per round increases in difficulty. The answer is then revealed and remaining players is updated (if at least someone got the answer correct, show the list of players in the round who get the answer incorrect and are eliminated)
-    * 
-* The following unique scenarios:
-    ** All players get the answer incorrect: If all of the players in the current round get the question incorrect, then they are excused and another question is repeated.
-    ** The user gets the answer incorrect: The user being ‘You’, gets the answer incorrect means they will be eliminated from the round, and will have to spectate the rest of the simulation of the game-show.
-* Using a “Pass”: Each player has one “pass” they can use throughout the whole game, which will guarantee them into the next round, however it cannot be used if the game is reduced to the final 25 players.
-* The end of the game: The remaining user who manages to stay in the game wins.
+---
 
-## Trivia Categories (with 3-digit CODE):
-* (GEN) General Knowledge
-* (SPO) Sports & Entertainment
-* (MUS) Music & Arts
-* (MAT) Mathematics & Geometry
-* (LAN) Language & Literature
-* (TEC) Technology & Science
-* (GEO) Geography & Nature
-* (HIS) History & Poltiics
-* (REC) Religion & Culture
+## Table of Contents
 
-## Game data:
-* Extracted from the CSV data of players, questions and categories. 99 players randomly selected from the pool of players, and question selected per round e.g. a question of 10 difficulty, the next of 20 difficulty, the next of 30 difficulty, all up until a question of 99 difficulty etc.
-* The players: Contains information about players participating in the game-show. Each row represents a player with their name location, and ratings in different categories out of 100 (GEN, SPO, MUS, MAT, LAN, TEC, GEO, HIS, REC).
-    * Example format: The header row is "name,location,GEN,SPO,MUS,MAT,LAN,TEC,GEO,HIS,REC"
-    * Example player “Maria,London,75,23,32,94,28,12,31,82,91”. Maria's ability on general knowledge (75), sports & entertainment (23), music & arts (32), mathematics & geomatry (94), language & literature (28), technology & science (12), geography & nature (31), history politics (82), religion & culture (91)
-* The questions: Holds the questions for the game-show. Each row represents a question with its options, correct answer category, and difficulty level. (0-100 from easy to difficult);
-    * Example format: The header row is "question,options,answer,category,difficulty"
-    * Example question: “What is 1+1, ‘2;3;-1;4’, a, MAT, 10”
-* The categories: Provides a mapping between category codes and their corresponding names
-    * Example format: The header row is "code,name"
-    * Example category: "MAT,Mathematics & Geometry" The code for the category "Mathematics & Geometry"
+- [Features](#features)
+- [Tech Stack and Key Decisions](#tech-stack-and-key-decisions)
+- [Screenshots](#screenshots)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Author](#author)
 
-## Output screenshots:
-Introduction to the game, the contestants of the game: ![os-1](screenshots/output-intro.png) 
-Quiz question selected from particular category: ![os-2](screenshots/output-qn.png) 
-(For debugging only) A breakdown of the probability simulator to determine if a CPU contestant passed the round. Tthe outcome is based on their ability on the particular category and the difficulty of the question: ![os-3](screenshots/output-db.png) 
-Eliminated and Remaining players: ![os-4](screenshots/output-update.png)
-Conclusion to game, one contestant winner: ![os-5](screenshots/output-final.png) 
+---
+
+## Features
+
+### Game Mechanics
+- **12-Round Progression** — Difficulty scales from 5% to 99% across rounds, matching the TV show format
+- **100 Contestants** — 99 CPU players and the user compete simultaneously with census-realistic demographics
+- **Category System** — Nine trivia categories (General Knowledge, Sports, Music, Mathematics, Language, Technology, Geography, History, Religion & Culture) each affecting CPU player performance
+- **Pass System** — Each player has one pass to guarantee survival in a round, disabled in the final 25 players
+- **Null Rounds** — If every contestant answers incorrectly, the round repeats with a new question
+- **Spectator Mode** — Eliminated players watch the remaining rounds play out
+
+### ITV 1% Club Final Logic
+- **Final Choice** — The sole survivor before the 99% round chooses to take the money or play the final
+- **Multi-Winner Support** — If multiple contestants survive all 12 rounds, they share the victory
+- **No Winners Scenario** — Handles the case where all contestants are eliminated
+
+### User Interface
+- **SVG Stickmen Crowd** — 5×20 grid of animated stickmen representing all 100 contestants with regional colour coding and skin-tone diversity
+- **Progress Bar** — Visual round tracker with colour-coded stages (completed, current, upcoming)
+- **Countdown Timer** — Animated timer with colour transitions for each question
+- **Custom SVG Icons** — All interface icons are inline SVGs with no external icon dependencies
+- **Responsive Design** — Three breakpoints for width and height ensure the layout works across screen sizes
+- **Fade Transitions** — Smooth slide-up and fade-in animations between screens
+
+### Visual Design
+- **Dark Theme** — Lime-green and dark palette inspired by the show's aesthetic
+- **Rajdhani + Orbitron** — Custom typography pairing for body text and display headings
+- **Winner Celebration** — Confetti animation, trophy icon and champion card on the final screen
+- **Eliminated List** — Scrollable list of eliminated players with mini stickman avatars
+
+---
+
+## Tech Stack and Key Decisions
+
+| Layer | Technology | Why |
+|-------|-----------|-----|
+| **Language** | Scala 2.13 | Functional programming with strong typing for game logic |
+| **Compiler** | Scala.js 1.16 | Compiles Scala to optimised JavaScript for browser execution |
+| **UI Library** | Slinky 0.7.4 | Type-safe React bindings for Scala.js with functional components |
+| **Rendering** | React 17 | Component-based rendering with hooks for state management |
+| **Bundler** | Webpack 5 | Module bundling with library-and-application mode via sbt-scalajs-bundler |
+| **Build Tool** | sbt 1.9.9 | Scala build orchestration with Scala.js and bundler plugins |
+| **CI/CD** | GitHub Actions | Automated build and deploy on push to main |
+| **Hosting** | Cloudflare Pages | Static site hosting with global CDN |
+
+### Notable Design Patterns
+
+- **Immutable Game State** — All state transitions produce new `GameState` instances, making the game logic predictable and testable
+- **Component Architecture** — Each screen (Intro, Question, Results, FinalChoice, Winner) is an isolated functional component with typed props
+- **SVG Icon System** — A centralised `SvgIcons` object provides all icons as inline SVG strings, eliminating external icon dependencies
+- **Census-Realistic Data** — 166 players with demographically representative names, ethnicities, skin tones and regional distribution across the UK
+- **Probability-Based Simulation** — CPU player outcomes are calculated from their category ratings and question difficulty, producing realistic elimination patterns
+
+---
+
+## Screenshots
+
+![ONE%](screenshots/project-onepercent.png)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Java 17](https://adoptium.net/) (Temurin recommended)
+- [sbt](https://www.scala-sbt.org/) (1.9+)
+- [Node.js](https://nodejs.org/) (v20 LTS)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/toniu/one-percent.git
+cd one-percent
+
+# Build the Scala.js bundle
+npm run build
+
+# Copy assets and start the local server
+npm start
+```
+
+The game will be available at `http://localhost:8080`.
+
+### npm Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run build` | Compile Scala.js and bundle with Webpack |
+| `npm start` | Build, copy assets and serve locally on port 8080 |
+| `npm run dev` | Stop any running server, rebuild and serve |
+| `npm run dist` | Build and assemble the `dist/` folder for deployment |
+| `npm run deploy` | Build and deploy to Cloudflare Pages (requires `wrangler login`) |
+
+---
+
+## Project Structure
+
+```
+one-percent/
+├── src/main/
+│   ├── scala/game/
+│   │   ├── Category.scala              # Category enum and mappings
+│   │   ├── GameApp.scala               # Scala.js entry point
+│   │   ├── GameData.scala              # Embedded CSV player and question data
+│   │   ├── GameLogic.scala             # Simulation engine and difficulty ratings
+│   │   ├── GameState.scala             # Immutable game state model
+│   │   ├── Player.scala                # Player case class with demographics
+│   │   ├── Question.scala              # Question data model
+│   │   └── components/
+│   │       ├── App.scala               # Root component with game flow logic
+│   │       ├── CrowdGrid.scala         # SVG stickmen crowd visualisation
+│   │       ├── FinalChoiceScreen.scala  # Take-the-money-or-play choice
+│   │       ├── IntroScreen.scala        # Welcome screen with start button
+│   │       ├── QuestionScreen.scala     # Question display with timer and options
+│   │       ├── ResultsScreen.scala      # Round results and elimination details
+│   │       ├── SvgIcons.scala           # Centralised inline SVG icon library
+│   │       └── WinnerScreen.scala       # Champion celebration with confetti
+│   └── resources/
+│       ├── index.html                   # HTML entry point
+│       ├── style.css                    # Stylesheet with responsive breakpoints
+│       └── logos/                       # Favicon and logo assets
+├── build.sbt                            # Scala.js and bundler configuration
+├── package.json                         # npm scripts for build and deploy
+└── .github/workflows/
+    └── deploy.yml                       # CI/CD pipeline for Cloudflare Pages
+```
+
+---
+
+## Deployment
+
+The project deploys automatically via GitHub Actions on every push to `main`.
+
+To deploy manually:
+
+```bash
+npm run deploy
+```
+
+This requires a Cloudflare account. Run `npx wrangler login` first to authenticate.
+
+For CI/CD, add the following secrets to your GitHub repository:
+
+| Secret | Value |
+|--------|-------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with Pages permissions |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID |
+
+---
+
+## Author
+
+**Neka Toni-Uebari**
+
+- GitHub: [toniu](https://github.com/toniu)
