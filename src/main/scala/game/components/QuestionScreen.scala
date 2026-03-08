@@ -82,12 +82,15 @@ import game._
       /* Progress bar */
       ProgressBar(ProgressBar.Props(gs.currentRound)),
 
+      /* Crowd grid */
+      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
+
       /* Header */
       div(className := "q-header")(
         div(className := "q-header-left")(
           h2(className := "round-label")(s"ROUND ${gs.currentRound}"),
           span(className := "category-badge")(
-            span(className := "cat-emoji")(GameLogic.getCategoryEmoji(question.category)),
+            span(className := "cat-icon", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.categoryIcon(question.category))),
             span(GameLogic.getCategoryName(question.category).toUpperCase)
           )
         ),
@@ -119,16 +122,13 @@ import game._
         div()
       },
 
-      /* Crowd grid */
-      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
-
       /* Question box */
       div(className := "question-box scale-in")(
         p(className := "question-text")(question.prompt)
       ),
 
       /* Options — click to select, not to submit */
-      div(className := "options-container")(
+      div(className := s"options-container${if (gs.userEliminated || confirmed) " options-spectator" else ""}")(
         question.options.zipWithIndex.map { case (opt, idx) =>
           val letter = ('a' + idx).toChar.toString
           val isSelected = selectedAnswer.contains(letter)
@@ -153,12 +153,18 @@ import game._
         /* Spectator: skip button */
         div(className := "spectator-actions")(
           div(className := "status-eliminated")(
-            "\uD83D\uDC40 You are eliminated \u2014 watching as spectator"
+            span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.eye)),
+            span(" You are eliminated \u2014 watching as spectator")
           ),
           button(
             className := "btn btn-skip",
             onClick := (_ => props.onAutoSimulate())
-          )("\u23ED SKIP")
+          )(
+            span(className := "btn-icon-text")(
+              span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.skipForward)),
+              span(" SKIP")
+            )
+          )
         )
       } else if (!confirmed) {
         /* Active: confirm + optional pass */
@@ -167,7 +173,12 @@ import game._
             button(
               className := "btn btn-confirm pulse",
               onClick := (_ => handleConfirm())
-            )("\u2705 CONFIRM ANSWER")
+            )(
+              span(className := "btn-icon-text")(
+                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.checkCircle)),
+                span(" CONFIRM ANSWER")
+              )
+            )
           } else {
             div()
           },
@@ -175,7 +186,12 @@ import game._
             button(
               className := "btn btn-orange",
               onClick := (_ => { confirmedRef.current = true; setConfirmed(true); props.onAnswer("p") })
-            )("\uD83C\uDFAB USE PASS")
+            )(
+              span(className := "btn-icon-text")(
+                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.ticket)),
+                span(" USE PASS")
+              )
+            )
           } else {
             div()
           }
@@ -183,7 +199,8 @@ import game._
       } else {
         /* After confirming — waiting for transition */
         div(className := "status-confirmed")(
-          "\u2705 Answer locked in!"
+          span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.checkCircle)),
+          span(" Answer locked in!")
         )
       }
     )

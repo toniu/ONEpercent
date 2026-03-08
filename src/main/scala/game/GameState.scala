@@ -3,10 +3,11 @@ package game
 /** Represents which screen the game is currently showing. */
 sealed trait Screen
 object Screen {
-  case object Intro    extends Screen
-  case object Question extends Screen
-  case object Results  extends Screen
-  case object Winner   extends Screen
+  case object Intro       extends Screen
+  case object Question    extends Screen
+  case object Results     extends Screen
+  case object FinalChoice extends Screen
+  case object Winner      extends Screen
 }
 
 /** Immutable snapshot of the entire game state. */
@@ -24,5 +25,6 @@ case class GameState(
   lastRoundEliminated: List[Player]  = List(),
   isNullRound: Boolean               = false,
   lastUserAnswer: String             = "",
-  lastUserCorrect: Boolean           = false
+  lastUserCorrect: Boolean           = false,
+  winners: List[Player]              = List()
 )

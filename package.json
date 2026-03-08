@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "ONE% Game Show — Scala.js + Slinky",
   "scripts": {
-    "start": "sbt 'Compile / fastOptJS / webpack' && cp src/main/resources/index.html src/main/resources/style.css target/scala-2.13/scalajs-bundler/main/ && cp -r src/main/resources/logos target/scala-2.13/scalajs-bundler/main/ && echo '\\n✅ Build complete — serving on http://localhost:8080\\n' && cd target/scala-2.13/scalajs-bundler/main && python3 -m http.server 8080"
+    "build": "sbt 'Compile / fastOptJS / webpack'",
+    "copy": "cp src/main/resources/index.html src/main/resources/style.css target/scala-2.13/scalajs-bundler/main/ && cp -r src/main/resources/logos target/scala-2.13/scalajs-bundler/main/ && echo '✅ Assets copied'",
+    "serve": "cd target/scala-2.13/scalajs-bundler/main && python3 -m http.server 8080",
+    "stop": "lsof -ti:8080 | xargs kill -9 2>/dev/null && echo '🛑 Server stopped' || echo 'No server on port 8080'",
+    "start": "npm run build && npm run copy && echo '\\n✅ Build complete — serving on http://localhost:8080\\n' && npm run serve",
+    "restart": "npm run stop && npm run copy && npm run serve",
+    "dev": "npm run stop && npm run build && npm run copy && npm run serve"
   },
   "private": true
 }

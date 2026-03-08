@@ -24,16 +24,16 @@ import game._
     val correctText   = GameLogic.getCorrectAnswer(question)
     val correctLetter = question.answer.toString
 
-    val (resultClass, resultMsg) = if (gs.lastUserAnswer == "p") {
-      ("result-pass", "\uD83C\uDFAB PASS USED \u2014 You advance!")
+    val (resultClass, resultIcon, resultMsg) = if (gs.lastUserAnswer == "p") {
+      ("result-pass", SvgIcons.ticket, "PASS USED \u2014 You advance!")
     } else if (gs.lastUserCorrect && !gs.userEliminated) {
-      ("result-correct", "\u2713 CORRECT!")
+      ("result-correct", SvgIcons.checkCircle, "CORRECT!")
     } else if (gs.lastUserAnswer == "timeout") {
-      ("result-wrong", "\u23F0 TIME\u2019S UP \u2014 You are eliminated")
+      ("result-wrong", SvgIcons.clock, "TIME\u2019S UP \u2014 You are eliminated")
     } else if (gs.userEliminated && gs.lastUserAnswer.nonEmpty) {
-      ("result-wrong", "\u2717 INCORRECT \u2014 You are eliminated")
+      ("result-wrong", SvgIcons.xCircle, "INCORRECT \u2014 You are eliminated")
     } else {
-      ("result-watch", "Watching simulation\u2026")
+      ("result-watch", SvgIcons.eye, "Watching simulation\u2026")
     }
 
     val eliminatedCount   = gs.lastRoundEliminated.length
@@ -46,21 +46,30 @@ import game._
         img(src := "logos/one-percent-logo-notext.png", alt := "ONE%", className := "mini-logo")
       ),
 
+      /* Progress bar */
+      ProgressBar(ProgressBar.Props(gs.currentRound)),
+
+      /* Crowd grid */
+      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
+
       /* Correct answer */
       h2(className := "gold-text")("CORRECT ANSWER"),
       div(className := "correct-answer-box")(
         p(s"($correctLetter) $correctText")
       ),
-      p(className := s"result-message $resultClass")(resultMsg),
+      div(className := s"result-message $resultClass")(
+        span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> resultIcon)),
+        span(s" $resultMsg")
+      ),
       div(className := "separator"),
-
-      /* Crowd */
-      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
 
       /* Elimination details */
       if (gs.isNullRound) {
         div(className := "null-round-box")(
-          h3("\u26A0\uFE0F NULL ROUND!"),
+          h3(
+            span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.alertTriangle)),
+            span(" NULL ROUND!")
+          ),
           p("No one got the answer correct!"),
           p(className := "sub-text")("Let\u2019s try another question\u2026")
         )
@@ -68,10 +77,9 @@ import game._
         val userAlsoOut = gs.userEliminated
         val sectionCls  = if (userAlsoOut) "elimination-section elim-user-out" else "elimination-section elim-user-safe"
         div(className := sectionCls)(
-          h3(className := "elim-heading")(s"\u274C $eliminatedCount PLAYERS ELIMINATED"),
-          div(className := "elim-stats")(
-            span(className := "elim-pct")(s"$eliminatedPercent%"),
-            span("of players got it wrong")
+          h3(className := "elim-heading")(
+            span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.xCircle)),
+            span(s" $eliminatedCount PLAYERS ELIMINATED")
           ),
           div(className := "elim-bar-bg")(
             div(className := "elim-bar-fill", style := js.Dynamic.literal("width" -> s"$eliminatedPercent%"))
@@ -96,7 +104,10 @@ import game._
           )
         )
       } else {
-        p(className := "no-elim")("\u2713 No players eliminated this round!")
+        div(className := "no-elim")(
+          span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.shieldCheck)),
+          span(" No players eliminated this round!")
+        )
       },
 
       /* Remaining count */
@@ -112,7 +123,34 @@ import game._
         className := "btn btn-gold btn-large",
         onClick := (_ => props.onNext())
       )(
-        if (gs.remainingPlayers.length <= 1) "\uD83C\uDFC6 SEE WINNER" else "NEXT ROUND \u25B6"
+        span(className := "btn-icon-text")({
+          val lastDiffIdx = GameLogic.difficulties.length - 1
+          val isLastRound = gs.currentRound - 1 >= lastDiffIdx
+          if (gs.remainingPlayers.isEmpty || isLastRound) {
+            span(
+              span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophy)),
+              span(if (gs.remainingPlayers.length > 1) s" SEE ${gs.remainingPlayers.length} WINNERS" else " SEE WINNER")
+            )
+          } else if (gs.remainingPlayers.length == 1) {
+            val nextDiffIdx = math.min(gs.currentRound, lastDiffIdx)
+            if (nextDiffIdx == lastDiffIdx) {
+              span(
+                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophy)),
+                span(" THE FINAL")
+              )
+            } else {
+              span(
+                span("NEXT ROUND "),
+                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.chevronRight))
+              )
+            }
+          } else {
+            span(
+              span("NEXT ROUND "),
+              span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.chevronRight))
+            )
+          }
+        })
       )
     )
   }
