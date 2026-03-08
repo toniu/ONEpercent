@@ -6,7 +6,6 @@ object Screen {
   case object Intro       extends Screen
   case object Question    extends Screen
   case object Results     extends Screen
-  case object FinalChoice extends Screen
   case object Winner      extends Screen
 }
 

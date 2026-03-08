@@ -99,47 +99,24 @@ import game._
       val lastDiffIdx = GameLogic.difficulties.length - 1
       val isLastRound = state.currentRound - 1 >= lastDiffIdx
 
-      if (state.remainingPlayers.length <= 0) {
-        // Everyone eliminated
+      if (state.remainingPlayers.isEmpty) {
+        // Everyone eliminated — no winners
         setState(state.copy(screen = Screen.Winner, winners = List()))
       } else if (isLastRound) {
         // Just finished the 99% question — all survivors are winners
         setState(state.copy(screen = Screen.Winner, winners = state.remainingPlayers))
       } else {
+        // Advance to the next round (or repeat on null round)
         val nextRoundNum = if (state.isNullRound) state.currentRound else state.currentRound + 1
         val nextDiffIdx  = math.min(nextRoundNum - 1, lastDiffIdx)
-        val isAboutToPlayFinal = nextDiffIdx == lastDiffIdx
-
-        if (isAboutToPlayFinal && state.remainingPlayers.length == 1) {
-          // Solo player before 99% round — offer the choice
-          setState(state.copy(screen = Screen.FinalChoice))
-        } else {
-          val difficulty = GameLogic.difficulties(nextDiffIdx)
-          val question   = GameLogic.selectQuestion(state.questions, difficulty)
-          setState(state.copy(
-            screen          = Screen.Question,
-            currentRound    = nextRoundNum,
-            currentQuestion = Some(question)
-          ))
-        }
+        val difficulty   = GameLogic.difficulties(nextDiffIdx)
+        val question     = GameLogic.selectQuestion(state.questions, difficulty)
+        setState(state.copy(
+          screen          = Screen.Question,
+          currentRound    = nextRoundNum,
+          currentQuestion = Some(question)
+        ))
       }
-    }
-
-    def takeMoney(): Unit = {
-      // Player takes the money — they win without playing the final
-      setState(state.copy(screen = Screen.Winner, winners = state.remainingPlayers))
-    }
-
-    def playFinal(): Unit = {
-      // Player chooses to play the 99% question
-      val lastDiffIdx = GameLogic.difficulties.length - 1
-      val difficulty  = GameLogic.difficulties(lastDiffIdx)
-      val question    = GameLogic.selectQuestion(state.questions, difficulty)
-      setState(state.copy(
-        screen          = Screen.Question,
-        currentRound    = lastDiffIdx + 1,
-        currentQuestion = Some(question)
-      ))
     }
 
     def resetGame(): Unit = {
@@ -171,12 +148,6 @@ import game._
           ResultsScreen(ResultsScreen.Props(
             gs        = state,
             onNext    = () => nextRound()
-          ))
-        case Screen.FinalChoice =>
-          FinalChoiceScreen(FinalChoiceScreen.Props(
-            gs        = state,
-            onTake    = () => takeMoney(),
-            onPlay    = () => playFinal()
           ))
         case Screen.Winner =>
           WinnerScreen(WinnerScreen.Props(

@@ -126,24 +126,21 @@ import game._
         span(className := "btn-icon-text")({
           val lastDiffIdx = GameLogic.difficulties.length - 1
           val isLastRound = gs.currentRound - 1 >= lastDiffIdx
+          val nextDiffIdx = math.min(gs.currentRound, lastDiffIdx)
+          val isAboutToPlayFinal = nextDiffIdx == lastDiffIdx
+
           if (gs.remainingPlayers.isEmpty || isLastRound) {
             span(
               span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophy)),
-              span(if (gs.remainingPlayers.length > 1) s" SEE ${gs.remainingPlayers.length} WINNERS" else " SEE WINNER")
+              span(if (gs.remainingPlayers.length > 1) s" SEE ${gs.remainingPlayers.length} WINNERS"
+                   else if (gs.remainingPlayers.isEmpty) " SEE RESULT"
+                   else " SEE WINNER")
             )
-          } else if (gs.remainingPlayers.length == 1) {
-            val nextDiffIdx = math.min(gs.currentRound, lastDiffIdx)
-            if (nextDiffIdx == lastDiffIdx) {
-              span(
-                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophy)),
-                span(" THE FINAL")
-              )
-            } else {
-              span(
-                span("NEXT ROUND "),
-                span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.chevronRight))
-              )
-            }
+          } else if (isAboutToPlayFinal) {
+            span(
+              span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.trophy)),
+              span(" THE FINAL QUESTION")
+            )
           } else {
             span(
               span("NEXT ROUND "),
