@@ -53,7 +53,7 @@ object GameGUI extends JFXApp3 {
     eliminatedPlayers = List()
 
     stage = new JFXApp3.PrimaryStage {
-      title = "ONE% - The Game Show"
+      title = "ONE%"
       width = 1000
       height = 800
       scene = createIntroScreen()

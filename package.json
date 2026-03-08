@@ -1,0 +1,9 @@
+{
+  "name": "one-percent",
+  "version": "1.0.0",
+  "description": "ONE% Game Show — Scala.js + Slinky",
+  "scripts": {
+    "start": "sbt 'Compile / fastOptJS / webpack' && cp src/main/resources/index.html src/main/resources/style.css target/scala-2.13/scalajs-bundler/main/ && cp -r src/main/resources/logos target/scala-2.13/scalajs-bundler/main/ && echo '\\n✅ Build complete — serving on http://localhost:8080\\n' && cd target/scala-2.13/scalajs-bundler/main && python3 -m http.server 8080"
+  },
+  "private": true
+}

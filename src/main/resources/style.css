@@ -471,12 +471,31 @@ html, body, #root {
   text-align: center;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  background: rgba(255,50,50,0.12);
   max-width: 580px;
   width: 100%;
 }
 
-.elim-heading { font-size: 0.9rem; color: #FF6464; margin-bottom: 0.3rem; }
+/* User still playing — neutral tint */
+.elim-user-safe {
+  background: rgba(255,255,255,0.05);
+}
+.elim-user-safe .elim-heading { color: var(--muted); }
+.elim-user-safe .elim-pct { color: var(--muted); }
+.elim-user-safe .elim-bar-fill { background: var(--muted); box-shadow: none; }
+.elim-user-safe .elim-list { border-color: rgba(150,150,140,0.3); background: rgba(100,100,90,0.12); }
+.elim-user-safe .elim-list::-webkit-scrollbar-thumb { background: rgba(150,150,140,0.4); }
+
+/* User eliminated — red warning */
+.elim-user-out {
+  background: rgba(255,50,50,0.12);
+}
+.elim-user-out .elim-heading { color: #FF6464; }
+.elim-user-out .elim-pct { color: var(--wrong-red); }
+.elim-user-out .elim-bar-fill { background: var(--wrong-red); box-shadow: 0 0 10px rgba(220,20,60,0.5); }
+.elim-user-out .elim-list { border-color: #C86464; background: rgba(100,50,50,0.2); }
+.elim-user-out .elim-list::-webkit-scrollbar-thumb { background: #C86464; }
+
+.elim-heading { font-size: 0.9rem; margin-bottom: 0.3rem; }
 
 .elim-stats {
   display: flex;
@@ -486,7 +505,7 @@ html, body, #root {
   margin-bottom: 0.4rem;
   font-size: 0.8rem;
 }
-.elim-pct { font-size: 1.4rem; font-weight: 900; color: var(--wrong-red); }
+.elim-pct { font-size: 1.4rem; font-weight: 900; }
 
 .elim-bar-bg {
   width: 100%;
@@ -512,13 +531,10 @@ html, body, #root {
   overflow-y: auto;
   padding: 0.3rem;
   border-radius: 6px;
-  background: rgba(100,50,50,0.2);
-  border: 1px solid #C86464;
   scroll-behavior: smooth;
 }
 .elim-list::-webkit-scrollbar { width: 4px; }
 .elim-list::-webkit-scrollbar-track { background: transparent; }
-.elim-list::-webkit-scrollbar-thumb { background: #C86464; border-radius: 4px; }
 
 .elim-item {
   display: flex;
@@ -530,6 +546,14 @@ html, body, #root {
   line-height: 1;
 }
 .elim-item:hover { background: rgba(255,100,100,0.12); }
+
+.elim-item-you {
+  background: rgba(195,252,2,0.10);
+  border-left: 2px solid var(--lime);
+  border-radius: 4px;
+}
+.elim-item-you .elim-name { color: var(--lime); }
+.elim-item-you:hover { background: rgba(195,252,2,0.18); }
 
 .elim-item + .elim-item {
   border-top: 1px solid rgba(200,100,100,0.15);

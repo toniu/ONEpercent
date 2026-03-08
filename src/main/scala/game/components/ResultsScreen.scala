@@ -65,7 +65,9 @@ import game._
           p(className := "sub-text")("Let\u2019s try another question\u2026")
         )
       } else if (eliminatedCount > 0) {
-        div(className := "elimination-section")(
+        val userAlsoOut = gs.userEliminated
+        val sectionCls  = if (userAlsoOut) "elimination-section elim-user-out" else "elimination-section elim-user-safe"
+        div(className := sectionCls)(
           h3(className := "elim-heading")(s"\u274C $eliminatedCount PLAYERS ELIMINATED"),
           div(className := "elim-stats")(
             span(className := "elim-pct")(s"$eliminatedPercent%"),
@@ -76,9 +78,12 @@ import game._
           ),
           ul(className := "elim-list")(
             gs.lastRoundEliminated.map { p =>
-              val bodyColor = RegionColors.get(p.region)
-              val svgHtml   = miniStickmanSvg(p.skinTone, bodyColor)
-              li(key := p.name, className := "elim-item")(
+              val isYou     = p.name == "You"
+              val headCol   = if (isYou) "#c3fc02" else p.skinTone
+              val bodyCol   = if (isYou) "#c3fc02" else RegionColors.get(p.region)
+              val svgHtml   = miniStickmanSvg(headCol, bodyCol)
+              val itemCls   = if (isYou) "elim-item elim-item-you" else "elim-item"
+              li(key := p.name, className := itemCls)(
                 div(className := "elim-avatar-wrap",
                   dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> svgHtml)
                 ),
