@@ -6,25 +6,20 @@ ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
+  .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
   .settings(
     name := "one-percent",
+    scalaJSUseMainModuleInitializer := true,
     libraryDependencies ++= Seq(
-      munit % Test,
-      "org.scalafx" %% "scalafx" % "20.0.0-R31"
-    )
+      "me.shadaj" %%% "slinky-core" % "0.7.4",
+      "me.shadaj" %%% "slinky-web"  % "0.7.4"
+    ),
+    Compile / npmDependencies ++= Seq(
+      "react"     -> "17.0.2",
+      "react-dom" -> "17.0.2"
+    ),
+    scalacOptions += "-Ymacro-annotations",
+    webpack / version := "5.75.0",
+    startWebpackDevServer / version := "4.11.1",
+    webpackBundlingMode := BundlingMode.LibraryAndApplication()
   )
-
-// Add this for JavaFX dependencies
-lazy val osName = System.getProperty("os.name") match {
-  case n if n.startsWith("Linux")   => "linux"
-  case n if n.startsWith("Mac")     => "mac"
-  case n if n.startsWith("Windows") => "win"
-  case _ => throw new Exception("Unknown platform!")
-}
-
-lazy val javaFXModules = Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
-libraryDependencies ++= javaFXModules.map(m =>
-  "org.openjfx" % s"javafx-$m" % "20.0.1" classifier osName
-)
-
-// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
