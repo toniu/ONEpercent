@@ -21,5 +21,25 @@ lazy val root = (project in file("."))
     scalacOptions += "-Ymacro-annotations",
     webpack / version := "5.75.0",
     startWebpackDevServer / version := "4.11.1",
-    webpackBundlingMode := BundlingMode.LibraryAndApplication()
+    webpackBundlingMode := BundlingMode.LibraryAndApplication(),
+    Compile / sourceGenerators += Def.task {
+      val csvDir  = baseDirectory.value / "src" / "main" / "scala" / "game" / "csv"
+      val outFile = (Compile / sourceManaged).value / "game" / "CsvData.scala"
+      val players    = IO.read(csvDir / "players.csv")
+      val questions  = IO.read(csvDir / "questions.csv")
+      val categories = IO.read(csvDir / "categories.csv")
+      def esc(s: String): String = s.replace("\\", "\\\\").replace("\"", "\\\"")
+      val src =
+        s"""package game
+           |
+           |/** Auto-generated from CSV files at compile time. Do not edit. */
+           |object CsvData {
+           |  val playersCSV: String = \"\"\"${esc(players.trim)}\"\"\"
+           |  val questionsCSV: String = \"\"\"${esc(questions.trim)}\"\"\"
+           |  val categoriesCSV: String = \"\"\"${esc(categories.trim)}\"\"\"
+           |}
+           |""".stripMargin
+      IO.write(outFile, src)
+      Seq(outFile)
+    }.taskValue
   )
