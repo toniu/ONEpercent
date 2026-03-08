@@ -49,6 +49,9 @@ import game.Player
 
       /* Main content */
       div(className := "winner-content")(
+        div(className := "mini-logo-bar")(
+          img(src := "logos/one-percent-logo-notext.png", alt := "ONE%", className := "mini-logo")
+        ),
         div(className := "trophy pulse")(
           "\uD83C\uDFC6"
         ),

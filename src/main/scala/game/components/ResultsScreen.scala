@@ -11,6 +11,13 @@ import game._
 @react object ResultsScreen {
   case class Props(gs: GameState, onNext: () => Unit)
 
+  /** Mini stickman SVG (head + torso only, no legs) for eliminated list. */
+  private def miniStickmanSvg(headColor: String, bodyColor: String): String =
+    s"""<svg viewBox="0 0 20 26" class="elim-avatar">
+       |  <circle cx="10" cy="5.5" r="4.5" fill="$headColor"/>
+       |  <rect x="5" y="11" width="10" height="13" rx="3" fill="$bodyColor"/>
+       |</svg>""".stripMargin
+
   val component: FunctionalComponent[Props] = FunctionalComponent[Props] { props =>
     val gs       = props.gs
     val question = gs.currentQuestion.get
@@ -21,6 +28,8 @@ import game._
       ("result-pass", "\uD83C\uDFAB PASS USED \u2014 You advance!")
     } else if (gs.lastUserCorrect && !gs.userEliminated) {
       ("result-correct", "\u2713 CORRECT!")
+    } else if (gs.lastUserAnswer == "timeout") {
+      ("result-wrong", "\u23F0 TIME\u2019S UP \u2014 You are eliminated")
     } else if (gs.userEliminated && gs.lastUserAnswer.nonEmpty) {
       ("result-wrong", "\u2717 INCORRECT \u2014 You are eliminated")
     } else {
@@ -32,6 +41,11 @@ import game._
     val eliminatedPercent = if (totalBeforeRound > 0) (eliminatedCount.toDouble / totalBeforeRound * 100).round.toInt else 0
 
     div(className := "screen results-screen fade-in")(
+      /* Mini logo */
+      div(className := "mini-logo-bar")(
+        img(src := "logos/one-percent-logo-notext.png", alt := "ONE%", className := "mini-logo")
+      ),
+
       /* Correct answer */
       h2(className := "gold-text")("CORRECT ANSWER"),
       div(className := "correct-answer-box")(
@@ -60,8 +74,20 @@ import game._
           div(className := "elim-bar-bg")(
             div(className := "elim-bar-fill", style := js.Dynamic.literal("width" -> s"$eliminatedPercent%"))
           ),
-          div(className := "elim-names")(
-            gs.lastRoundEliminated.map(_.name).mkString(", ")
+          ul(className := "elim-list")(
+            gs.lastRoundEliminated.map { p =>
+              val bodyColor = RegionColors.get(p.region)
+              val svgHtml   = miniStickmanSvg(p.skinTone, bodyColor)
+              li(key := p.name, className := "elim-item")(
+                div(className := "elim-avatar-wrap",
+                  dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> svgHtml)
+                ),
+                div(className := "elim-info")(
+                  span(className := "elim-name")(p.name),
+                  span(className := "elim-location")(p.location)
+                )
+              )
+            }
           )
         )
       } else {

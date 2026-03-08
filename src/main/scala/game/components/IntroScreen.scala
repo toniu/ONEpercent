@@ -11,7 +11,11 @@ import slinky.web.html._
   val component: FunctionalComponent[Props] = FunctionalComponent[Props] { props =>
     div(className := "screen intro-screen fade-in")(
       div(className := "intro-content")(
-        h1(className := "game-title")("ONE%"),
+        img(
+          src := "logos/one-percent-logo.png",
+          alt := "ONE%",
+          className := "intro-logo"
+        ),
         h2(className := "game-subtitle")("THE GAME SHOW"),
         div(className := "separator"),
         div(className := "intro-message")(

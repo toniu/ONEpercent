@@ -7,7 +7,7 @@ object GameLogic {
 
   val difficulties: List[Int] = List(5, 10, 15, 25, 30, 45, 50, 60, 75, 80, 90, 99)
 
-  val userPlayer: Player = Player("You", "", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+  val userPlayer: Player = Player("You", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, "#c3fc02", "YOU", "")
 
   def selectQuestion(questions: List[Question], difficulty: Int): Question = {
     val eligible = questions.filter(_.difficulty == difficulty)

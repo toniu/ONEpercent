@@ -5,11 +5,16 @@ import slinky.core.annotations.react
 import slinky.core.facade.Hooks._
 import slinky.web.html._
 
+import scala.scalajs.js
 import game._
 
-/** Displays the current question with answer options, crowd grid, and pass button. */
+/** Displays the current question with answer options, countdown timer, and action buttons. */
 @react object QuestionScreen {
   case class Props(gs: GameState, onAnswer: String => Unit, onAutoSimulate: () => Unit)
+
+  private val TotalTime = 30
+  private val Radius    = 54.0
+  private val Circumference = 2 * math.Pi * Radius
 
   val component: FunctionalComponent[Props] = FunctionalComponent[Props] { props =>
     val gs = props.gs
@@ -17,17 +22,63 @@ import game._
     val canPass = !gs.userEliminated && !gs.userPassUsed &&
       gs.remainingPlayers.length > (gs.allPlayers.length * 0.25)
 
-    /* Auto-simulate after delay when user is already eliminated */
+    /* ── Local state ───────────────────────────────────── */
+    val (selectedAnswer, setSelectedAnswer) = useState[Option[String]](None)
+    val (timeLeft, setTimeLeft)             = useState(TotalTime)
+    val (confirmed, setConfirmed)           = useState(false)
+    val timeRef      = useRef(TotalTime)
+    val confirmedRef = useRef(false)
+
+    /* ── Reset on new round ────────────────────────────── */
     useEffect(() => {
-      if (gs.userEliminated) {
-        val timerId = scala.scalajs.js.timers.setTimeout(2000) {
-          props.onAutoSimulate()
+      setSelectedAnswer(None)
+      setTimeLeft(TotalTime)
+      setConfirmed(false)
+      timeRef.current = TotalTime
+      confirmedRef.current = false
+      ()
+    }, Seq(gs.currentRound))
+
+    /* ── Countdown timer (active players only) ─────────── */
+    useEffect(() => {
+      if (!gs.userEliminated && !confirmed) {
+        val intervalId = js.timers.setInterval(1000) {
+          if (!confirmedRef.current) {
+            timeRef.current = timeRef.current - 1
+            setTimeLeft(timeRef.current)
+            if (timeRef.current <= 0) {
+              confirmedRef.current = true
+              props.onAnswer("timeout")
+            }
+          }
         }
-        (() => scala.scalajs.js.timers.clearTimeout(timerId)): Unit
+        () => js.timers.clearInterval(intervalId)
+      } else {
+        () => ()
       }
-    }, Seq(gs.userEliminated, gs.currentRound))
+    }, Seq(gs.userEliminated, confirmed, gs.currentRound))
+
+    def handleConfirm(): Unit = {
+      selectedAnswer.foreach { answer =>
+        confirmedRef.current = true
+        setConfirmed(true)
+        props.onAnswer(answer)
+      }
+    }
+
+    /* ── Countdown ring values ─────────────────────────── */
+    val progress   = timeLeft.toDouble / TotalTime
+    val dashOffset = Circumference * (1.0 - progress)
+    val timerColor = if (timeLeft > 10) "var(--lime)"
+                     else if (timeLeft > 5) "var(--orange)"
+                     else "var(--wrong-red)"
 
     div(className := "screen question-screen fade-in")(
+      /* Mini logo */
+      div(className := "mini-logo-bar")(
+        img(src := "logos/one-percent-logo-notext.png", alt := "ONE%", className := "mini-logo")
+      ),
+
       /* Progress bar */
       ProgressBar(ProgressBar.Props(gs.currentRound)),
 
@@ -50,6 +101,24 @@ import game._
         )
       ),
 
+      /* Countdown ring timer (active players only) */
+      if (!gs.userEliminated && !confirmed) {
+        div(className := s"countdown-container${if (timeLeft <= 5) " countdown-critical" else ""}",
+          dangerouslySetInnerHTML := js.Dynamic.literal("__html" ->
+            s"""<svg viewBox="0 0 120 120" class="countdown-ring">
+               |  <circle class="countdown-bg" cx="60" cy="60" r="$Radius"/>
+               |  <circle class="countdown-fg" cx="60" cy="60" r="$Radius"
+               |    style="stroke-dasharray:${Circumference};stroke-dashoffset:${dashOffset};stroke:${timerColor}"/>
+               |  <text x="60" y="66" class="countdown-text" fill="white"
+               |    text-anchor="middle" font-size="32" font-weight="900"
+               |    font-family="Inter,sans-serif">${timeLeft}</text>
+               |</svg>""".stripMargin
+          )
+        )
+      } else {
+        div()
+      },
+
       /* Crowd grid */
       CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
 
@@ -58,14 +127,20 @@ import game._
         p(className := "question-text")(question.prompt)
       ),
 
-      /* Options */
+      /* Options — click to select, not to submit */
       div(className := "options-container")(
         question.options.zipWithIndex.map { case (opt, idx) =>
           val letter = ('a' + idx).toChar.toString
+          val isSelected = selectedAnswer.contains(letter)
+          val selClass = if (isSelected) " selected" else ""
           div(
             key := letter,
-            className := s"option-btn stagger-$idx",
-            onClick := (_ => if (!gs.userEliminated) props.onAnswer(letter))
+            className := s"option-btn stagger-$idx$selClass",
+            onClick := (_ => if (!gs.userEliminated && !confirmed) {
+              setSelectedAnswer(
+                if (selectedAnswer.contains(letter)) None else Some(letter)
+              )
+            })
           )(
             span(className := "option-letter")(letter.toUpperCase),
             span(className := "option-text")(opt)
@@ -73,20 +148,43 @@ import game._
         }
       ),
 
-      /* Pass button */
-      if (canPass) {
-        div(className := "pass-container")(
+      /* ── Action buttons ──────────────────────────────── */
+      if (gs.userEliminated) {
+        /* Spectator: skip button */
+        div(className := "spectator-actions")(
+          div(className := "status-eliminated")(
+            "\uD83D\uDC40 You are eliminated \u2014 watching as spectator"
+          ),
           button(
-            className := "btn btn-orange",
-            onClick := (_ => props.onAnswer("p"))
-          )("\uD83C\uDFAB USE PASS")
+            className := "btn btn-skip",
+            onClick := (_ => props.onAutoSimulate())
+          )("\u23ED SKIP")
         )
-      } else if (gs.userEliminated) {
-        div(className := "status-eliminated")(
-          "\uD83D\uDC40 You are eliminated \u2014 watching simulation"
+      } else if (!confirmed) {
+        /* Active: confirm + optional pass */
+        div(className := "action-buttons")(
+          if (selectedAnswer.isDefined) {
+            button(
+              className := "btn btn-confirm pulse",
+              onClick := (_ => handleConfirm())
+            )("\u2705 CONFIRM ANSWER")
+          } else {
+            div()
+          },
+          if (canPass) {
+            button(
+              className := "btn btn-orange",
+              onClick := (_ => { confirmedRef.current = true; setConfirmed(true); props.onAnswer("p") })
+            )("\uD83C\uDFAB USE PASS")
+          } else {
+            div()
+          }
         )
       } else {
-        div()
+        /* After confirming — waiting for transition */
+        div(className := "status-confirmed")(
+          "\u2705 Answer locked in!"
+        )
       }
     )
   }
