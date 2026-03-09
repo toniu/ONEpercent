@@ -17,7 +17,7 @@ Quick reference for the codes and values used across the CSV files in this folde
 | CB | Caribbean |
 | MX | Mixed |
 
-Distribution is loosely based on the 2021 UK census, with adjustments of representation of minority groups for visual diversity in the crowd grid.
+Distribution of ethnicities is loosely based on the 2021 UK census, with adjustments of representation of minority groups for visual diversity in the crowd grid.
 
 ## Skin Colours
 
