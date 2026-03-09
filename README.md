@@ -6,7 +6,7 @@ difficulty across 12 rounds — be the last one standing to become the ONE%.
 
 > **Built with:** Scala 2.13 · Scala.js · Slinky · React 17 · Webpack 5 · GitHub Actions · Cloudflare Pages
 
-### [View Live Demo](https://one-percent.pages.dev)
+### [View Live Demo](https://one-percent-9y5.pages.dev/)
 
 ---
 
