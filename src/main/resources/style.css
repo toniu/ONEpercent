@@ -109,6 +109,102 @@ html, body, #root {
 .host-text     { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem; }
 .contestant-count { font-size: 1rem; color: var(--muted); font-weight: 500; }
 
+/* ── How-to-Play Button ───────────────────────────────────── */
+.btn-how-to {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(195,252,2,0.25);
+  font-size: 0.7rem;
+  padding: 0.4rem 1.6rem;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  margin-top: 0.1rem;
+  transition: all 0.25s ease;
+}
+.btn-how-to:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+  background: rgba(195,252,2,0.06);
+}
+
+/* ── Overlay / Modal ──────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+.overlay-card {
+  position: relative;
+  background: var(--bg-dark);
+  border: 1px solid rgba(195,252,2,0.2);
+  border-radius: 12px;
+  padding: 1.8rem 1.6rem 1.4rem;
+  max-width: 420px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+.overlay-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.overlay-close:hover { color: var(--white); }
+.overlay-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--lime);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.overlay-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.htp-rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.htp-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--bg-dark);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+.htp-rule p {
+  font-size: 0.85rem;
+  color: var(--white);
+  line-height: 1.45;
+  margin: 0;
+}
+
 /* ── Inline SVG Icons ─────────────────────────────────────── */
 .icon {
   width: 1em;
