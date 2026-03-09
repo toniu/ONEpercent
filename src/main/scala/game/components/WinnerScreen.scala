@@ -108,7 +108,7 @@ import game.Player
                   span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.sparkles))
                 )
               } else {
-                span("Well played! Better luck next time!")
+                span("Well played!")
               }
             )
           )
