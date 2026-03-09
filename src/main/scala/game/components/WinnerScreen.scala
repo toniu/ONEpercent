@@ -65,7 +65,7 @@ import game.Player
             h1(className := "winner-title")("NO WINNERS"),
             p(className := "winner-subtitle")("EVERYONE ELIMINATED"),
             div(className := "separator"),
-            p(className := "congrats-text")("No one overcame the ONE% challenge this time. Better luck next time!")
+            p(className := "congrats-text")("No one overcame the ONE% this time.")
           )
         } else if (winners.length == 1) {
           /* Single winner */
