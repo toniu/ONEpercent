@@ -50,23 +50,29 @@ jobs:
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
 
-      # Debug step: keep until deploy works, then delete it
-      - name: Debug to show token identity + list Pages projects (via API)
+      - name: "Debug - verify token + list Pages projects (STOP after)"
         run: |
-          echo "Testing Cloudflare API token..."
+          set -euxo pipefail
+
+          echo "== Token verify =="
           curl -sS -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json" | sed 's/\\n/\n/g'
-
+            -H "Content-Type: application/json"
           echo ""
-          echo "Listing Pages projects for account $CLOUDFLARE_ACCOUNT_ID ..."
+
+          echo "== Pages projects for account: $CLOUDFLARE_ACCOUNT_ID =="
           curl -sS -X GET "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json" | sed 's/\\n/\n/g'
+            -H "Content-Type: application/json"
+          echo ""
+
+          echo "Stopping here intentionally (debug mode)."
+          exit 0
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
+      # After debug is resolved, delete the exit 0 above and re-enable this step
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
