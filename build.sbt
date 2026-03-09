@@ -28,7 +28,7 @@ lazy val root = (project in file("."))
       val players    = IO.read(csvDir / "players.csv")
       val questions  = IO.read(csvDir / "questions.csv")
       val categories = IO.read(csvDir / "categories.csv")
-      def esc(s: String): String = s.replace("\\", "\\\\").replace("\"", "\\\"")
+      def esc(s: String): String = s.replace("\"\"\"", "\\\"\\\"\\\"")
       val src =
         s"""package game
            |

@@ -48,7 +48,12 @@ import game._
                               else state.userEliminated
 
       val eliminated = GameLogic.simulateAnswers(question, state.remainingPlayers, newUserEliminated)
-      val isNullRound = eliminated.length == state.remainingPlayers.length
+      val allEliminated = eliminated.length == state.remainingPlayers.length
+      val lastDiffIdx = GameLogic.difficulties.length - 1
+      val isFinalRound = state.currentRound - 1 >= lastDiffIdx
+
+      // Null round only in non-final rounds — in the final, total wipeout means zero winners
+      val isNullRound = allEliminated && !isFinalRound
 
       val (newRemaining, newEliminated) = if (isNullRound) {
         (state.remainingPlayers, state.eliminatedPlayers)
@@ -75,7 +80,10 @@ import game._
     def handleAutoSimulate(): Unit = {
       val question = state.currentQuestion.get
       val eliminated = GameLogic.simulateAnswers(question, state.remainingPlayers, state.userEliminated)
-      val isNullRound = eliminated.length == state.remainingPlayers.length
+      val allEliminated = eliminated.length == state.remainingPlayers.length
+      val lastDiffIdx = GameLogic.difficulties.length - 1
+      val isFinalRound = state.currentRound - 1 >= lastDiffIdx
+      val isNullRound = allEliminated && !isFinalRound
 
       val (newRemaining, newEliminated) = if (isNullRound) {
         (state.remainingPlayers, state.eliminatedPlayers)
@@ -108,14 +116,16 @@ import game._
         // Just finished the 99% question — all survivors are winners
         setState(state.copy(screen = Screen.Winner, winners = state.remainingPlayers))
       } else {
-        // Advance to the next round (or repeat on null round)
+        // If only 1 player remains, skip straight to the 99% final
         val nextRoundNum = if (state.isNullRound) state.currentRound else state.currentRound + 1
-        val nextDiffIdx  = math.min(nextRoundNum - 1, lastDiffIdx)
+        val skipToFinal  = state.remainingPlayers.length == 1 && nextRoundNum - 1 < lastDiffIdx
+        val finalRoundNum = if (skipToFinal) lastDiffIdx + 1 else nextRoundNum
+        val nextDiffIdx  = math.min(finalRoundNum - 1, lastDiffIdx)
         val difficulty   = GameLogic.difficulties(nextDiffIdx)
         val question     = GameLogic.selectQuestion(state.questions, difficulty)
         setState(state.copy(
           screen          = Screen.Question,
-          currentRound    = nextRoundNum,
+          currentRound    = finalRoundNum,
           currentQuestion = Some(question)
         ))
       }

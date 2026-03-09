@@ -5,6 +5,20 @@ import scala.util.Random
 /** Parses CSV data (auto-embedded at compile time from csv/ files) and provides game data. */
 object GameData {
 
+  /** Splits a CSV line respecting quoted fields (commas inside quotes are preserved). */
+  private def parseCsvLine(line: String): Array[String] = {
+    val fields = scala.collection.mutable.ArrayBuffer[String]()
+    val current = new StringBuilder
+    var inQuotes = false
+    for (ch <- line) {
+      if (ch == '"') inQuotes = !inQuotes
+      else if (ch == ',' && !inQuotes) { fields += current.toString.trim; current.clear() }
+      else current += ch
+    }
+    fields += current.toString.trim
+    fields.toArray
+  }
+
   def loadPlayers(): List[Player] = {
     val lines = CsvData.playersCSV.trim.split("\n").toList.tail
     val shuffled = Random.shuffle(lines)
@@ -19,10 +33,10 @@ object GameData {
   def loadQuestions(): List[Question] = {
     val lines = CsvData.questionsCSV.trim.split("\n").toList.tail
     lines.flatMap { line =>
-      val parts = line.split(",")
+      val parts = parseCsvLine(line)
       if (parts.length >= 5) {
-        val rawOptions = parts(1).replaceAll("^\"|\"$", "").split(";").toList
-        val questionText = parts(0).replaceAll("^\"|\"$", "")
+        val rawOptions = parts(1).split(";").toList
+        val questionText = parts(0)
         val answerIdx = parts(2).trim.head - 'a'
         val correctText = rawOptions(answerIdx)
         val shuffledOptions = Random.shuffle(rawOptions)
