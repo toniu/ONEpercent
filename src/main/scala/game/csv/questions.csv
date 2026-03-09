@@ -1,70 +1,301 @@
 question,options,answer,category,difficulty
-"What is the currency of Japan",Dollar;Yen;Pound;Euro,b,GEN,5
-"What is the capital of France",Paris;Rome;Berlin;Madrid,a,GEN,5
-"What is the chemical symbol for water",H2O;CO2;NaCl;O2,a,GEN,5
-"Which planet is known as the 'Red Planet'",Mars;Venus;Jupiter;Saturn,a,GEN,5
-"What is the currency of Japan",Yen;Dollar;Euro;Pound,b,GEN,5
-"What is the tallest mammal in the world",Giraffe;Elephant;Hippo;Rhino,a,GEN,45
-"Who painted the Mona Lisa",Leonardo da Vinci;Vincent van Gogh;Pablo Picasso;Michelangelo,a,GEN,5
-"What is the largest ocean in the world",Pacific Ocean;Atlantic Ocean;Indian Ocean;Arctic Ocean,a,GEN,5
-"In which year did the Titanic sink",1912;1905;1920;1898,a,GEN,50
-"What is the chemical symbol for gold",Au;Ag;Fe;Cu,a,GEN,10
-"What is the capital of Italy",Rome;Paris;Berlin;Madrid,a,GEN,10
-"What is the currency of Australia",Dollar;Yen;Pound;Euro,a,GEN,15
-"In which year did World War II end",1945;1918;1939;1950,a,GEN,30
-"What is the largest desert in the world",Sahara;Arabian;Gobi;Kalahari,a,GEN,10
-"What is the chemical symbol for silver",Ag;Au;Fe;Cu,a,GEN,15
-"What is the capital of Canada",Ottawa;Toronto;Montreal;Vancouver,a,GEN,15
-"What is the currency of Brazil",Real;Peso;Euro;Dollar,a,GEN,30
-"In which year did the United States declare independence",1776;1789;1800;1812,a,GEN,15
-"What is the world's longest river",Nile;Amazon;Yangtze;Mississippi,a,GEN,25
-"What is the chemical symbol for iron",Fe;Ag;Au;Cu,a,GEN,25
-"What is the capital of Argentina",Buenos Aires;Rio de Janeiro;Santiago;Lima,a,GEN,30
-"What is the currency of South Africa",Rand;Peso;Euro;Dollar,a,GEN,45
-"In which year did the Berlin Wall fall",1989;1991;1985;1995,a,GEN,50
-"What is the deepest ocean trench in the world",Mariana Trench;Puerto Rico Trench;Java Trench;Molloy Deep,a,GEN,25
-"What is the chemical symbol for copper",Cu;Ag;Au;Fe,a,GEN,60
-"What is the capital of Egypt",Cairo;Alexandria;Giza;Luxor,a,GEN,75
-"What is the currency of Russia",Ruble;Peso;Euro;Dollar,a,GEN,75
-"In which year did Nelson Mandela become president of South Africa",1994;1990;1985;2000,a,GEN,80
-"What is the highest mountain in Africa",Mount Kilimanjaro;Mount Kenya;Mount Elgon;Mount Meru,a,GEN,80
-"What is the chemical symbol for uranium",Ag;U;Au;Fe,b,GEN,90
-"What is the capital of Turkey",Ankara;Istanbul;Izmir;Antalya,a,GEN,90
-"What is the currency of India",Rupee;Peso;Euro;Dollar,a,GEN,99
-"In which year did the French Revolution begin",1789;1776;1800;1812,a,GEN,99
-"What is the largest mammal in the world",Blue whale;Elephant;Giraffe;Hippopotamus,a,GEN,45
-"What year was the very first model of the iPhone released?",2006;2007;2008;2009,b,TEC,20
-"What’s the shortcut for the “copy” function on most computers?",ctrl c;alt c;shift c;ctrl v,a,TEC,15
-"What is often seen as the smallest unit of memory?",megabyte;kilobyte;gigabyte;terabyte,b,TEC,25
-"Is Java a type of OS?",Yes;No,b,TEC,10
-"Who is often called the father of the computer?",Bill Gates;Steve Jobs;Charles Babbage;Alan Turing,c,TEC,30
-"What does “HTTP” stand for?",HyperText Transfer Protocol;High Tech Transfer Protocol;HyperTransfer Text Protocol;High Tech Text Protocol,a,TEC,25
-"What is the name of the man who launched eBay back in 1995?",Mark Zuckerberg;Pierre Omidyar;Jeff Bezos;Larry Page,b,TEC,30
-"Which email service is owned by Microsoft?",Gmail;Outlook;Yahoo;Hotmail,d,TEC,20
-"Google Chrome, Safari, Firefox, and Explorer are different types of what?",Operating systems;Web browsers;Antivirus software;Search engines,b,TEC,20
-"What was Twitter’s original name?",twtr;tweet;chirp;blurt,a,TEC,15
-"Which programming language is often used for developing Android applications?",Python;Java;C++;JavaScript,b,TEC,25
-"What is the name of the open-source operating system created by Linus Torvalds?",Windows;Linux;macOS;Unix,b,TEC,30
-"In the context of email, what does “CC” stand for?",Copy Cat;Carbon Copy;Courtesy Copy;Common Communication,b,TEC,25
-"In computing, what does “CPU” stand for?",Central Processing Unit;Central Programming Unit;Computer Processing Unit;Control Processing Unit,a,TEC,30
-"Which company developed the first commercially available computer mouse?",Apple;IBM;Microsoft;Xerox,d,TEC,30
-"Who discovered penicillin?",Alexander Fleming;Marie Curie;Louis Pasteur;Florence Nightingale,a,TEC,25
-"Who was the first woman to win a Nobel Prize (in 1903)?",Marie Curie;Rosalind Franklin;Ada Lovelace;Elizabeth Blackwell,a,TEC,30
-"What part of the atom has no electric charge?",Neutron;Proton;Electron;Nucleus,a,TEC,30
-"What is the symbol for potassium?",K;Pt;P;Kt,a,TEC,20
-"What is meteorology the study of?",The weather;Volcanoes;Tectonic plates;Ocean currents,a,TEC,20
-"Which planet is the hottest in the solar system?",Venus;Mercury;Mars;Earth,a,TEC,25
-"Which natural disaster is measured with a Richter scale?",Earthquakes;Hurricanes;Tornadoes;Floods,a,TEC,25
-"What animals are pearls found in?",Oysters;Clams;Mussels;Scallops,a,TEC,20
-"Which planet has the most gravity?",Jupiter;Saturn;Neptune;Uranus,a,TEC,30
-"How many molecules of oxygen does ozone have?",Three;Two;One;Four,a,TEC,25
-"How many soccer players should each team have on the field at the start of each match?",10;11;8;9,b,SPO,25
-"When Michael Jordan played for the Chicago Bulls, how many NBA Championships did he win?",Three;Five;Four;Six,d,SPO,30
-"Which Williams sister has won more Grand Slam titles?",Both have won the same number;Neither has won any;Serena;Venus,a,SPO,30
-"What country won the very first FIFA World Cup in 1930?",Brazil;Uruguay;Italy;Argentina,b,SPO,80
-"In what year was the first-ever Wimbledon Championship held?",1900;1910;1880;1877,c,SPO,20
-"Which racer holds the record for the most Grand Prix wins?",Sebastian Vettel;Michael Schumacher;Lewis Hamilton;Ayrton Senna,c,SPO,45
-"Which Jamaican runner is an 11-time world champion and holds the record in the 100 and 200-meter race?",Asafa Powell;Yohan Blake;Justin Gatlin;Usain Bolt,d,SPO,50
-"Which boxer was known as “The Greatest” and “The People’s Champion”?",Mike Tyson;Joe Louis;Floyd Mayweather;Muhammad Ali,d,SPO,50
-"What sport was Jesse Owens involved in?",Boxing;Track and field;Basketball;Football,b,SPO,45
-"Which hockey team did Wayne Gretzky play for in the ‘80s?",Los Angeles Kings;New York Rangers;Pittsburgh Penguins;Edmonton Oilers,d,SPO,75
+"I share my name with a fish but I'm spent not swum — I'm Japan's currency. What am I?",Yen;Won;Baht;Riel,a,GEN,5
+"Every country has one but only one city wears France's crown. What is it?",Paris;Lyon;Marseille;Nice,a,GEN,5
+"I'm the tallest living land animal — my neck alone can be six feet long. What am I?",Giraffe;Elephant;Camel;Moose,a,GEN,5
+"He painted her smile but gave away no secrets — who was the artist behind the Mona Lisa?",Leonardo da Vinci;Michelangelo;Raphael;Caravaggio,a,GEN,5
+"I cover more of Earth than all the land combined. I'm the largest ocean. Which one?",Pacific;Atlantic;Indian;Arctic,a,GEN,5
+"H, then 2, then O — three letters that make the most essential liquid. What compound is this?",H2O;CO2;NaCl;H2S,a,GEN,5
+"The Red Planet — dusty, cold, and named after a Roman god of war. Which planet?",Mars;Venus;Jupiter;Saturn,a,GEN,5
+"On its maiden voyage it met an iceberg it couldn't survive. In what year did the Titanic sink?",1912;1908;1921;1916,a,GEN,10
+"Au is my symbol on the periodic table — I'm prized, I'm shiny, I'm ancient currency. What element?",Gold;Silver;Copper;Platinum,a,GEN,10
+"The longest river on Earth winds through eleven countries before reaching the Mediterranean. Which river?",Nile;Amazon;Yangtze;Congo,a,GEN,10
+"The largest hot desert on Earth stretches across North Africa. What is its name?",Sahara;Gobi;Arabian;Patagonian,a,GEN,10
+"Ag — two letters that represent a precious metal used in jewellery and old coins. What element?",Silver;Gold;Argon;Arsenic,a,GEN,15
+"This capital sits on the Ottawa River and was chosen partly because neither Toronto nor Montreal could agree. Which city?",Ottawa;Toronto;Vancouver;Montreal,a,GEN,15
+"In 1776, thirteen colonies put their grievances in writing. What year did the US declare independence?",1776;1783;1787;1770,a,GEN,15
+"This nation's currency is the Real — it's the largest country in South America. What currency?",Real;Peso;Cruzeiro;Dollar,a,GEN,15
+"Brazil;'s currency was once the cruzeiro — now it's something else. What is Brazil's current currency?",Real;Peso;Escudo;Bolivar,a,GEN,15
+"Fe is its chemical symbol — it's what blood and skyscrapers have in common. Which element?",Iron;Fluorine;Francium;Fermium,a,GEN,25
+"The Argentine capital — named after good air, though its founders may have been optimistic. What city?",Buenos Aires;Montevideo;Asuncion;Santiago,a,GEN,25
+"This trench plunges nearly 11km beneath the Pacific Ocean — the deepest place on Earth. What is it called?",Mariana Trench;Puerto Rico Trench;Tonga Trench;Philippine Trench,a,GEN,25
+"Cu on the table — it's in your wiring, your coins, and the Statue of Liberty's skin. What element?",Copper;Cobalt;Carbon;Chromium,a,GEN,25
+"Egypt's capital shares its name with an ancient city and sits at the mouth of the Nile Delta. Which city?",Cairo;Alexandria;Luxor;Aswan,a,GEN,30
+"In 1989 a wall fell and a Cold War effectively ended — which city hosted that famous wall?",Berlin;Moscow;Warsaw;Prague,a,GEN,30
+"This African nation uses the Rand — its southernmost city is Cape Town. Which currency?",Rand;Shilling;Pula;Naira,a,GEN,30
+"Russia's currency shares its name with the Russian word for 'cut' — coins were once cut from silver rods. What's the currency?",Ruble;Kopek;Grivna;Tenge,a,GEN,45
+"In 1994 he walked out of prison and into the presidency. Who was South Africa's first Black president?",Nelson Mandela;Desmond Tutu;Thabo Mbeki;Oliver Tambo,a,GEN,45
+"The world's largest mammal is a creature of the ocean — its heart alone weighs as much as a car. What is it?",Blue Whale;Sperm Whale;Elephant;Giant Squid,a,GEN,45
+"Africa's highest peak is a dormant stratovolcano in Tanzania. What is its name?",Mount Kilimanjaro;Mount Kenya;Ras Dashen;Mount Meru,a,GEN,50
+"U is its symbol — it's radioactive, heavy, and the fuel of nuclear reactors. Which element?",Uranium;Unnilium;Unified;Unobtanium,a,GEN,50
+"Turkey has two names for its capital — foreigners call it Ankara but it replaced which Ottoman city as capital in 1923?",Istanbul;Izmir;Bursa;Konya,a,GEN,60
+"India's currency is named for a Sanskrit word meaning 'silver'. What is it?",Rupee;Taka;Paisa;Anna,a,GEN,60
+"The year the French stormed a prison and changed history — when did the Revolution begin?",1789;1776;1793;1799,a,GEN,75
+"This landlocked country in Central Asia uses the Tenge — its largest city is Almaty. Which country's currency is the Tenge?",Kazakhstan;Uzbekistan;Kyrgyzstan;Tajikistan,a,GEN,75
+"Which element has the highest melting point of all metals, making it essential in lightbulb filaments?",Tungsten;Platinum;Osmium;Iridium,a,GEN,80
+"The Moors ruled much of the Iberian Peninsula for centuries — what is the Arabic-origin name for their region of Spain?",Al-Andalus;Castile;Aragon;Catalonia,a,GEN,90
+"Which ancient wonder of the world stood at the entrance of Rhodes harbour?",Colossus of Rhodes;Lighthouse of Alexandria;Temple of Artemis;Statue of Zeus,a,GEN,90
+"What is the only country that borders both the Caspian Sea and the Persian Gulf?",Iran;Iraq;Azerbaijan;Kazakhstan,a,GEN,99
+"Which is the only letter that does not appear in any US state name?",Q;Z;X;J,a,GEN,99
+"I keep time when a referee blows their whistle — how many players does each football team start with?",11;10;12;9,a,SPO,5
+"She won 23 Grand Slam singles titles — more than any other player in the Open Era. Which Williams sister?",Serena;Venus;Both equally;Neither,a,SPO,5
+"He floated like a butterfly and stung like a bee — which boxer was 'The Greatest'?",Muhammad Ali;Joe Frazier;Mike Tyson;George Foreman,a,SPO,5
+"The fastest man alive — 9.58 seconds in the 100m. Which Jamaican sprinter holds the world record?",Usain Bolt;Asafa Powell;Yohan Blake;Justin Gatlin,a,SPO,5
+"He scored 99 international centuries — cricket's greatest batsman. Who is he?",Sachin Tendulkar;Brian Lara;Ricky Ponting;Vivian Richards,a,SPO,10
+"How many times did Michael Jordan win the NBA Championship with the Chicago Bulls?",6;4;5;3,a,SPO,10
+"Which country won football's very first FIFA World Cup in 1930?",Uruguay;Argentina;Brazil;Italy,a,SPO,10
+"At which Olympic Games did Jesse Owens infamously win four gold medals, embarrassing Hitler's regime?",Berlin 1936;Paris 1924;Los Angeles 1932;London 1948,a,SPO,15
+"This Canadian ice hockey player is so associated with the Edmonton Oilers that his number 99 was retired league-wide. Who?",Wayne Gretzky;Mario Lemieux;Bobby Orr;Gordie Howe,a,SPO,15
+"Wimbledon's first championship was held in which decade — the same one Queen Victoria was crowned?",1870s;1880s;1890s;1860s,b,SPO,15
+"Lewis Hamilton won his record-breaking 8th Formula 1 World Championship with which team?",Mercedes;Ferrari;McLaren;Red Bull,a,SPO,25
+"Which country has won the most Rugby World Cups?",New Zealand;South Africa;Australia;England,a,SPO,25
+"In cricket, what term describes a bowler taking three wickets with consecutive deliveries?",Hat-trick;Turkey;Triple play;Over,a,SPO,25
+"Which sport uses a shuttlecock instead of a ball?",Badminton;Squash;Racquetball;Pickleball,a,SPO,25
+"How many holes are played in a standard round of golf?",18;9;12;21,a,SPO,30
+"The 'Miracle on Ice' refers to which country's shock ice hockey victory over the USSR at the 1980 Olympics?",USA;Canada;Sweden;Finland,a,SPO,30
+"At the 2012 Olympics, which British cyclist won gold on the track and road on the same day — an unprecedented feat?",Bradley Wiggins;Chris Hoy;Victoria Pendleton;Mark Cavendish,a,SPO,30
+"Which athlete has won the most Olympic gold medals in history?",Michael Phelps;Larisa Latynina;Usain Bolt;Carl Lewis,a,SPO,45
+"In snooker, what is the maximum break a player can achieve in a single visit to the table?",147;155;180;144,a,SPO,45
+"England's only FIFA World Cup win came on home soil — which year?",1966;1970;1962;1974,a,SPO,45
+"Which country's national cricket team is nicknamed the Proteas?",South Africa;Zimbabwe;Kenya;Namibia,a,SPO,50
+"The 'Hand of God' goal was scored in the 1986 World Cup quarter-final. Who scored it?",Diego Maradona;Pelé;Ronaldo;Zidane,a,SPO,50
+"Which marathon world record holder ran the race in under 2 hours in a controlled event in 2019?",Eliud Kipchoge;Kenenisa Bekele;Mo Farah;Haile Gebrselassie,a,SPO,60
+"Who holds the record for most Test cricket wickets in history?",Muttiah Muralitharan;Shane Warne;Anil Kumble;Glenn McGrath,a,SPO,60
+"In American Football, how many points is a safety worth?",2;3;6;1,a,SPO,75
+"The Fosbury Flop revolutionised the high jump. At which Olympics did Dick Fosbury first use it to win gold?",Mexico 1968;Tokyo 1964;Munich 1972;Montreal 1976,a,SPO,75
+"Which country has won the most Olympic gold medals in field hockey — men's?",India;Pakistan;Netherlands;Germany,a,SPO,80
+"Which chess grandmaster defeated Garry Kasparov in a famous 1997 match — becoming the first computer to beat a world champion?",Deep Blue;AlphaZero;Stockfish;Fritz,a,SPO,90
+"In darts, what is the name for the area of the dartboard between the outer and inner bull?",Bull;Outer Bull;25;Green,b,SPO,90
+"The 'butterfly stroke' in swimming was originally a variant of which other stroke?",Breaststroke;Backstroke;Freestyle;Sidestroke,a,SPO,99
+"Which sport features a 'Foil', an 'Épée', and a 'Sabre'?",Fencing;Jousting;Kendo;Archery,a,SPO,99
+"Four strings and a bow — I'm played in orchestras but also in barns. What instrument am I?",Violin;Cello;Viola;Mandolin,a,MUS,5
+"She sold more records than any other female artist of the 20th century — her surname is a shape. Who?",Madonna;Whitney Houston;Mariah Carey;Celine Dion,a,MUS,5
+"Which legendary rock band released 'Bohemian Rhapsody' in 1975?",Queen;Led Zeppelin;The Who;Pink Floyd,a,MUS,5
+"Mozart composed his first symphony at age five — in which country was he born?",Austria;Germany;Italy;France,a,MUS,5
+"Which Beatle was assassinated outside his New York apartment in 1980?",John Lennon;Paul McCartney;George Harrison;Ringo Starr,a,MUS,10
+"'Thriller' — the best-selling album of all time — was made by which artist?",Michael Jackson;Prince;Whitney Houston;Madonna,a,MUS,10
+"How many keys does a standard piano have?",88;76;92;84,a,MUS,10
+"Which Shakespeare play features the line 'To be or not to be, that is the question'?",Hamlet;Macbeth;Othello;King Lear,a,MUS,10
+"Van Gogh famously cut off part of his own ear — which one?",Left;Right;Both;Neither,a,MUS,15
+"Which Italian opera composer wrote 'La Traviata', 'Aida', and 'Rigoletto'?",Verdi;Puccini;Rossini;Donizetti,a,MUS,15
+"The Impressionist painter who gave his name to a movement — what was Claude's surname?",Monet;Manet;Renoir;Degas,a,MUS,15
+"Which song holds the record as the best-selling physical single of all time?",White Christmas;Something;Yesterday;Hey Jude,a,MUS,25
+"The Uffizi Gallery is one of the world's oldest art museums — in which Italian city?",Florence;Rome;Venice;Milan,a,MUS,25
+"Beethoven composed his 9th Symphony after going completely deaf — what is the famous final movement called?",Ode to Joy;Moonlight Sonata;Fate;Pastoral,a,MUS,25
+"Which instrument is Jimi Hendrix most associated with — and which hand did he play it with despite being left-handed?",Right-handed guitar;Left-handed guitar;Bass guitar;Keyboard,a,MUS,30
+"The 'Girl with a Pearl Earring' — often called the Dutch Mona Lisa — was painted by whom?",Vermeer;Rembrandt;Hals;Rubens,a,MUS,30
+"Which composer wrote The Four Seasons?",Vivaldi;Bach;Handel;Telemann,a,MUS,30
+"Banksy is a world-famous anonymous street artist — in which British city is his work most associated?",Bristol;London;Manchester;Birmingham,a,MUS,30
+"Which rapper has won the most Grammy Awards in history?",Jay-Z;Kendrick Lamar;Eminem;Drake,a,MUS,45
+"Which Spanish surrealist painter was known for melting clocks and bizarre dreamlike scenes?",Salvador Dalí;Joan Miró;Pablo Picasso;Francisco Goya,a,MUS,45
+"The 'Rite of Spring' caused a riot on its premiere night in 1913. Who composed it?",Stravinsky;Debussy;Ravel;Prokofiev,a,MUS,50
+"Which classical composer was famously described as writing music 'too many notes' by Emperor Joseph II in the film Amadeus?",Mozart;Beethoven;Salieri;Haydn,a,MUS,50
+"Frida Kahlo is famous for her self-portraits — which country's folklore and imagery dominates her work?",Mexico;Colombia;Argentina;Spain,a,MUS,60
+"The 'Goldberg Variations' were composed by which Baroque master, supposedly to help a count sleep?",Bach;Handel;Vivaldi;Telemann,a,MUS,60
+"Which album by The Beatles was recorded almost entirely live in the studio, designed to capture a raw concert feel?",Let It Be;Abbey Road;Revolver;Sgt Pepper,a,MUS,75
+"Which sculptor created 'The Thinker' — a brooding bronze man seated with his chin on his fist?",Rodin;Michelangelo;Bernini;Brancusi,a,MUS,75
+"Which minimalist American composer is famous for 4'33'' — a piece where musicians sit in silence?",John Cage;Philip Glass;Steve Reich;La Monte Young,a,MUS,80
+"The 'Habanera' is one of the most recognisable arias in opera — from which opera does it come?",Carmen;La Traviata;Tosca;Madama Butterfly,a,MUS,90
+"Who was the first artist to be inducted into both the Rock and Roll Hall of Fame and the Country Music Hall of Fame?",Elvis Presley;Johnny Cash;Chuck Berry;Jerry Lee Lewis,a,MUS,90
+"Which 20th century artist created a series called 'drip paintings' by pouring and splattering paint onto horizontal canvases?",Jackson Pollock;Mark Rothko;Franz Kline;Willem de Kooning,a,MUS,99
+"Which Italian Renaissance artist sculpted the Pietà in St Peter's Basilica at just 24 years old?",Michelangelo;Donatello;Brunelleschi;Ghiberti,a,MUS,99
+"If you have 3 apples and someone gives you 5 more, how many do you have?",8;7;9;6,a,MAT,5
+"What is 7 multiplied by 8?",56;54;48;64,a,MAT,5
+"What is a triangle with three equal sides called?",Equilateral;Isosceles;Scalene;Right,a,MAT,5
+"If a pizza is cut into 8 slices and you eat 3, what fraction is left?",5/8;3/8;2/4;1/2,a,MAT,5
+"How many degrees are in a right angle?",90;45;180;360,a,MAT,5
+"What is 15% of 200?",30;20;25;35,a,MAT,10
+"A square has four equal sides — if one side is 6cm, what is its perimeter?",24cm;36cm;12cm;18cm,a,MAT,10
+"What is the next prime number after 7?",11;9;13;10,a,MAT,10
+"Roman numerals: what number does XIX represent?",19;14;21;16,a,MAT,10
+"What is the square root of 144?",12;11;13;14,a,MAT,15
+"If a train travels at 60mph for 2.5 hours, how far does it travel?",150 miles;120 miles;160 miles;140 miles,a,MAT,15
+"How many faces does a cube have?",6;8;4;12,a,MAT,15
+"What is 2 to the power of 10?",1024;512;2048;256,a,MAT,25
+"A circle has a radius of 5cm. What is its area (use π ≈ 3.14)?",78.5 sq cm;31.4 sq cm;62.8 sq cm;157 sq cm,a,MAT,25
+"What is the sum of the interior angles of a hexagon?",720°;540°;600°;660°,a,MAT,25
+"If a jacket costs £80 and is reduced by 35%, what is the sale price?",£52;£48;£56;£44,a,MAT,30
+"What is the value of π rounded to five decimal places?",3.14159;3.14162;3.14157;3.14160,a,MAT,30
+"In a right-angled triangle with sides 3 and 4, what is the length of the hypotenuse?",5;6;7;4.5,a,MAT,30
+"If the mean of five numbers is 12 and four of them are 10, 14, 8, and 16, what is the fifth?",12;10;14;8,a,MAT,45
+"What is the 10th term in the Fibonacci sequence (starting 1, 1, 2, 3…)?",55;34;89;45,a,MAT,45
+"A sphere has a radius of 3cm. What is its volume (use π ≈ 3.14)?",113.04 cu cm;75.36 cu cm;100.53 cu cm;125 cu cm,a,MAT,50
+"What is the remainder when 2^20 is divided by 7?",2;1;4;6,a,MAT,50
+"If log(x) = 3 (base 10), what is x?",1000;300;100;10000,a,MAT,60
+"What is the derivative of x³ + 4x² - 2x + 7?",3x²+8x-2;3x²+4x-2;x²+8x-2;3x³+8x,a,MAT,60
+"What is the sum of all integers from 1 to 100?",5050;5000;5100;4950,a,MAT,75
+"How many diagonals does a decagon (10-sided polygon) have?",35;40;30;45,a,MAT,75
+"What is the smallest perfect number greater than 6?",28;12;18;24,a,MAT,80
+"In modular arithmetic, what is 7¹⁰⁰ mod 5?",1;2;3;4,a,MAT,90
+"What is the angle in radians of 270 degrees?",3π/2;π;2π;π/2,a,MAT,90
+"The Monty Hall problem — if you switch doors, what is your probability of winning?",2/3;1/2;1/3;3/4,a,MAT,99
+"Which number is both a square number and a triangular number less than 100?",36;25;49;64,a,MAT,99
+"Shakespeare wrote in which language?",English;Latin;French;Old Norse,a,LAN,5
+"What is the most widely spoken language in the world by total speakers?",English;Mandarin Chinese;Spanish;Hindi,a,LAN,5
+"In which country is Arabic NOT an official language?",Ethiopia;Egypt;Morocco;Algeria,a,LAN,5
+"What does the Latin phrase 'carpe diem' mean?",Seize the day;Live for love;Fish of the day;The day is long,a,LAN,5
+"Which letter appears most frequently in written English?",E;A;T;S,a,LAN,10
+"What is a word that reads the same forwards and backwards called?",Palindrome;Anagram;Homophone;Synonym,a,LAN,10
+"In Spanish, what does 'buenos días' mean?",Good morning;Good night;Goodbye;Good luck,a,LAN,10
+"Which famous novel begins: 'It was the best of times it was the worst of times'?",A Tale of Two Cities;Oliver Twist;Great Expectations;Bleak House,a,LAN,10
+"What is the French word for 'butterfly'?",Papillon;Fleur;Plume;Lumière,a,LAN,15
+"Who wrote '1984' — a dystopian novel about surveillance and doublethink?",George Orwell;Aldous Huxley;Ray Bradbury;Arthur Koestler,a,LAN,15
+"Which fictional detective lives at 221B Baker Street?",Sherlock Holmes;Hercule Poirot;Miss Marple;Philip Marlowe,a,LAN,15
+"What is the longest word in the English language with no repeated letters?",Uncopyrightable;Ambidextrous;Incomprehensible;Questionably,a,LAN,25
+"In German, what is the word for 'glove' — literally translating as 'hand shoe'?",Handschuh;Handtuch;Handgriff;Handbag,a,LAN,25
+"Which Jane Austen novel begins: 'It is a truth universally acknowledged...'?",Pride and Prejudice;Sense and Sensibility;Emma;Persuasion,a,LAN,25
+"Mandarin Chinese uses a writing system with thousands of characters — what are they called?",Hanzi;Kanji;Hiragana;Pinyin,a,LAN,30
+"In which Shakespeare play does the character Iago manipulate the Moorish general through jealousy?",Othello;Hamlet;Macbeth;The Tempest,a,LAN,30
+"What is the name for a word that sounds like what it represents — like buzz, hiss, or crackle?",Onomatopoeia;Alliteration;Assonance;Synecdoche,a,LAN,30
+"Which Russian author wrote 'War and Peace' and 'Anna Karenina'?",Leo Tolstoy;Fyodor Dostoevsky;Anton Chekhov;Ivan Turgenev,a,LAN,45
+"In linguistics, what is a morpheme?",The smallest unit of meaning;A type of vowel;A grammatical tense;A dialect variation,a,LAN,45
+"Which Nobel Prize-winning Colombian author wrote '100 Years of Solitude'?",Gabriel García Márquez;Jorge Luis Borges;Pablo Neruda;Mario Vargas Llosa,a,LAN,50
+"The word 'algebra' comes from a treatise by which 9th century mathematician?",Al-Khwarizmi;Omar Khayyam;Euclid;Pythagoras,a,LAN,50
+"In linguistics, what term describes words with opposite meanings?",Antonyms;Synonyms;Homonyms;Hyponyms,a,LAN,60
+"Which ancient writing system was first deciphered using the Rosetta Stone?",Egyptian hieroglyphs;Sumerian cuneiform;Linear B;Proto-Sinaitic,a,LAN,60
+"Which poet wrote 'The Waste Land' in 1922 — considered one of the most important poems of the 20th century?",T.S. Eliot;Ezra Pound;W.B. Yeats;W.H. Auden,a,LAN,75
+"What is the term for the grammatical structure where a verb must agree in person and number with its subject?",Subject-verb agreement;Declension;Conjugation;Inflection,a,LAN,75
+"Which language family does Finnish belong to — notably NOT Indo-European?",Uralic;Semitic;Altaic;Dravidian,a,LAN,80
+"James Joyce's 'Ulysses' mirrors which ancient epic poem in structure?",The Odyssey;The Iliad;The Aeneid;Beowulf,a,LAN,90
+"Which writing system is used for the Amharic language, the official language of Ethiopia?",Ge'ez (Ethiopic);Arabic;Latin;Cyrillic,a,LAN,90
+"What is the linguistic term for when two languages influence each other and create a simplified hybrid?",Creole;Pidgin;Dialect;Patois,a,LAN,99
+"In Sanskrit grammar, how many grammatical cases does a noun have?",Eight;Six;Four;Twelve,a,LAN,99
+"What does 'www' stand for in a web address?",World Wide Web;World Wide Wire;Wide World Web;Wireless World Web,a,TEC,5
+"Which company made the first iPhone?",Apple;Samsung;Nokia;Motorola,a,TEC,5
+"What does 'USB' stand for?",Universal Serial Bus;Unified System Bridge;Universal System Buffer;United Serial Board,a,TEC,5
+"What key combination do you press to undo an action on most computers?",Ctrl+Z;Ctrl+U;Ctrl+Y;Alt+Z,a,TEC,5
+"What does 'AI' stand for in technology?",Artificial Intelligence;Automated Integration;Advanced Interface;Applied Intelligence,a,TEC,10
+"Which planet is hottest in our solar system — despite not being the closest to the Sun?",Venus;Mercury;Mars;Earth,a,TEC,10
+"What is the powerhouse of the cell?",Mitochondria;Nucleus;Ribosome;Golgi body,a,TEC,10
+"What force keeps planets in orbit around the sun?",Gravity;Magnetism;Friction;Nuclear force,a,TEC,10
+"Who is widely credited with discovering penicillin in 1928?",Alexander Fleming;Louis Pasteur;Robert Koch;Joseph Lister,a,TEC,15
+"What is the chemical symbol for potassium on the periodic table?",K;Po;P;Pt,a,TEC,15
+"How many bones are in the adult human body?",206;208;212;198,a,TEC,15
+"Which is the only planet in our solar system that rotates on its side, with its axis nearly parallel to its orbit?",Uranus;Neptune;Saturn;Jupiter,a,TEC,25
+"What does DNA stand for?",Deoxyribonucleic Acid;Dioxinucleic Acid;Deoxyribose Nucleic Array;Deoxyribonuclear Acid,a,TEC,25
+"In computing, what does RAM stand for?",Random Access Memory;Read Access Memory;Rapid Action Module;Remote Application Memory,a,TEC,25
+"Who developed the theory of general relativity?",Albert Einstein;Isaac Newton;Niels Bohr;Max Planck,a,TEC,25
+"What is the speed of light in a vacuum?",299792458 m/s;300000000 m/s;186000 m/s;3000 m/s,a,TEC,30
+"Which company created the Linux operating system kernel?",Linus Torvalds (none);Microsoft;IBM;Bell Labs,a,TEC,30
+"What particle carries a negative electric charge in an atom?",Electron;Proton;Neutron;Quark,a,TEC,30
+"What is the half-life of Carbon-14 — used in radiocarbon dating?",5730 years;1000 years;10000 years;50000 years,a,TEC,45
+"Which programming paradigm uses 'objects' that contain both data and functions?",Object-Oriented;Functional;Procedural;Declarative,a,TEC,45
+"What phenomenon explains why the sky is blue?",Rayleigh Scattering;Refraction;Reflection;Dispersion,a,TEC,45
+"What is the name of the theoretical boundary around a black hole beyond which nothing can escape?",Event Horizon;Singularity;Schwarzschild Radius;Photon Sphere,a,TEC,50
+"In chemistry, what is the pH of a neutral solution at 25°C?",7;0;14;6.5,a,TEC,50
+"What is Schrödinger's Cat a thought experiment illustrating?",Quantum superposition;Wave-particle duality;The uncertainty principle;String theory,a,TEC,60
+"In Big O notation, what does O(n log n) typically represent?",Efficient sorting algorithms;Linear search;Bubble sort;Constant time,a,TEC,60
+"What is the name of the process by which plants convert sunlight into glucose?",Photosynthesis;Respiration;Transpiration;Osmosis,a,TEC,75
+"What force is described by the equation F = ma?",Newton's Second Law;First Law;Third Law;Law of Gravity,a,TEC,75
+"What does CRISPR stand for in genetic editing?",Clustered Regularly Interspaced Short Palindromic Repeats;Controlled RNA Integration Splicing Protocol;Chromosomal Repair Integration System;Cell RNA Insertion Sequence Protocol,a,TEC,80
+"Which subatomic particle was theorised by Peter Higgs and confirmed at CERN in 2012?",Higgs Boson;Graviton;Tachyon;Neutrino,a,TEC,90
+"In thermodynamics, what does entropy measure?",Disorder or randomness of a system;Heat capacity;Enthalpy;Pressure at equilibrium,a,TEC,90
+"What is the name of the mathematical proof that states no consistent axiomatic system can prove all true statements about arithmetic?",Gödel's Incompleteness Theorem;Turing's Halting Problem;Russell's Paradox;Cantor's Diagonal Argument,a,TEC,99
+"What is the Chandrasekhar limit, and what stellar event does it relate to?",1.4 solar masses — the mass limit before a white dwarf collapses into a neutron star or black hole;2.0 solar masses — when a red giant becomes a supernova;1.0 solar mass — the mass of a typical star;3.0 solar masses — the threshold for black hole formation,a,TEC,99
+"Which country contains the most natural lakes in the world?",Canada;Russia;Brazil;USA,a,GEO,5
+"What is the capital of Australia?",Canberra;Sydney;Melbourne;Brisbane,a,GEO,5
+"Which is the smallest country in the world by land area?",Vatican City;Monaco;San Marino;Liechtenstein,a,GEO,5
+"What is the highest mountain in the world?",Mount Everest;K2;Kangchenjunga;Lhotse,a,GEO,5
+"On which continent is the Amazon Rainforest located?",South America;Africa;Asia;North America,a,GEO,10
+"What is the longest river in Europe?",Volga;Danube;Rhine;Thames,a,GEO,10
+"Which ocean lies between Africa and Australia?",Indian Ocean;Pacific Ocean;Atlantic Ocean;Southern Ocean,a,GEO,10
+"How many countries share a land border with France?",8;6;5;7,a,GEO,10
+"What is the name of the large plateau that covers much of Tibet?",Tibetan Plateau;Deccan Plateau;Pamir Plateau;Mongolian Plateau,a,GEO,15
+"Which African country has the most pyramids — more even than Egypt?",Sudan;Egypt;Ethiopia;Libya,a,GEO,15
+"What is the name of the sea between Italy and the Balkans?",Adriatic Sea;Aegean Sea;Tyrrhenian Sea;Ionian Sea,a,GEO,15
+"The Ring of Fire is a region of high volcanic activity — which ocean does it surround?",Pacific Ocean;Atlantic Ocean;Indian Ocean;Arctic Ocean,a,GEO,25
+"What is the world's largest hot spring — located in Yellowstone National Park?",Grand Prismatic Spring;Old Faithful;Mammoth Hot Springs;Norris Geyser,a,GEO,25
+"Which two countries share the world's longest land border?",Canada and USA;Russia and Kazakhstan;China and Mongolia;Argentina and Chile,a,GEO,25
+"What is the only country in the world to have land borders with just one other country?",Portugal;Vatican City;Monaco;Canada,a,GEO,30
+"Which desert is the coldest desert in the world?",Antarctica;Gobi;Atacama;Arctic,a,GEO,30
+"What is the name of the narrow strip of water separating Spain from Morocco?",Strait of Gibraltar;Strait of Sicily;Bosphorus;Strait of Hormuz,a,GEO,30
+"Which mountain range separates Europe from Asia?",Ural Mountains;Caucasus Mountains;Alps;Carpathians,a,GEO,45
+"The Dead Sea borders which two countries?",Jordan and Israel;Israel and Egypt;Jordan and Saudi Arabia;Egypt and Libya,a,GEO,45
+"What is the name of the phenomenon where cold dense water sinks in the North Atlantic, driving global ocean circulation?",Thermohaline Circulation;El Niño;Gulf Stream;Coriolis Effect,a,GEO,50
+"Which country has the most time zones — spanning 11 of them?",Russia;USA;Canada;China,a,GEO,50
+"What is the name of the world's largest archipelago?",Indonesia;Philippines;Japan;Maldives,a,GEO,60
+"The Atacama Desert in South America receives virtually no rainfall — why is it so dry despite being near the ocean?",Cold Humboldt Current blocks moisture;Prevailing winds carry rain away;High altitude prevents cloud formation;Located in a rain shadow,a,GEO,60
+"Which river flows through the most countries in the world?",Danube;Nile;Amazon;Rhine,a,GEO,75
+"What is the Great Pacific Garbage Patch and roughly how large is it?",A gyre of marine debris twice the size of Texas;A submerged reef of plastics;A dense layer of sunken waste;A current carrying fishing nets,a,GEO,75
+"Which tectonic plate is moving towards Asia fast enough that it will eventually close the Indian Ocean?",Indo-Australian;Pacific;Eurasian;Antarctic,a,GEO,80
+"The Sahara Desert was once a lush savannah with rivers and wildlife — approximately when did this 'African Humid Period' end?",5000 years ago;10000 years ago;20000 years ago;2000 years ago,a,GEO,90
+"Which is the only city in the world to span two continents?",Istanbul;Cairo;Moscow;Athens,a,GEO,90
+"What is the Karman Line and why is it significant?",The boundary 100km above Earth marking the edge of space;The depth at which ocean pressure doubles;The latitude where auroras form;The point where Earth's magnetic field reverses,a,GEO,99
+"What would happen to sea levels if all of Antarctica's ice sheets melted?",Rise by approximately 60 metres;Rise by 10 metres;Rise by 200 metres;Fall due to rebound,a,GEO,99
+"Julius Caesar was assassinated on which date — the 'Ides of March'?",15 March 44 BC;1 March 55 BC;15 March 33 BC;20 March 44 BC,a,HIS,5
+"Which ancient wonder of the world was located in Alexandria, Egypt?",The Great Library;The Lighthouse;The Colossus;The Hanging Gardens,b,HIS,5
+"What was the name of the ship that carried the Pilgrims to America in 1620?",Mayflower;Santa Maria;Endeavour;Beagle,a,HIS,5
+"Who was the first person to walk on the Moon?",Neil Armstrong;Buzz Aldrin;Yuri Gagarin;Alan Shepard,a,HIS,5
+"Which empire was ruled by Genghis Khan?",Mongol Empire;Roman Empire;Ottoman Empire;Persian Empire,a,HIS,10
+"The Great Wall of China was primarily built to keep out which group?",Mongol invaders;Roman armies;Silk Road traders;Persian forces,a,HIS,10
+"In which year did the Second World War end?",1945;1944;1946;1943,a,HIS,10
+"Which British prime minister led the country through most of World War II?",Winston Churchill;Neville Chamberlain;Clement Attlee;Stanley Baldwin,a,HIS,10
+"The Magna Carta — a foundational document of democracy — was signed in which year?",1215;1066;1415;1307,a,HIS,15
+"Cleopatra VII was the last pharaoh of ancient Egypt — she was actually of which heritage?",Greek (Macedonian);Egyptian;Roman;Persian,a,HIS,15
+"The Battle of Hastings in 1066 saw which invader defeat King Harold?",William of Normandy;Harald Hardrada;Sweyn Forkbeard;Canute,a,HIS,15
+"Who was the first female Prime Minister of the United Kingdom?",Margaret Thatcher;Theresa May;Barbara Castle;Harriet Harman,a,HIS,25
+"What was the name of the war fought between Britain and Argentina in 1982 over a disputed island group?",Falklands War;Malvinas Conflict;South Atlantic War;Operation Corporate,a,HIS,25
+"Which ancient civilisation built the city of Machu Picchu?",Inca;Maya;Aztec;Olmec,a,HIS,25
+"The 'Scramble for Africa' in the late 19th century refers to which process?",European colonisation of Africa;African tribal wars;The slave trade;Exploration of the Sahara,a,HIS,30
+"In which city was Archduke Franz Ferdinand assassinated — an event that triggered World War I?",Sarajevo;Vienna;Prague;Berlin,a,HIS,30
+"Which Soviet leader ordered the construction of the Berlin Wall in 1961?",Nikita Khrushchev;Joseph Stalin;Leonid Brezhnev;Mikhail Gorbachev,a,HIS,30
+"The Reformation began when Martin Luther nailed his 95 Theses to a church door — in which German city?",Wittenberg;Cologne;Berlin;Hamburg,a,HIS,45
+"What was the name of the programme under which millions of Jews and others were systematically murdered during WWII?",The Final Solution;Operation Barbarossa;The Night of Broken Glass;The Nuremberg Laws,a,HIS,45
+"Which dynasty ruled China the longest, for over 800 years?",Zhou Dynasty;Han Dynasty;Ming Dynasty;Qing Dynasty,a,HIS,50
+"What was the Zimmermann Telegram and why did it bring the USA into WWI?",Germany's offer to Mexico to attack the USA in exchange for territory;An armistice offer from Austria;A coded British intelligence message;A secret French alliance proposal,a,HIS,50
+"The Haitian Revolution was the only successful slave revolt in history that led to the creation of a new state. In what year was Haiti founded?",1804;1789;1820;1810,a,HIS,60
+"Which Roman emperor first adopted Christianity as the religion of the Roman Empire?",Constantine I;Nero;Augustus;Hadrian,a,HIS,60
+"The 'Dreyfus Affair' in late 19th-century France was sparked by the wrongful conviction of an officer for what crime?",Treason/Espionage;Desertion;Murder;Fraud,a,HIS,75
+"The Meiji Restoration of 1868 transformed Japan from what type of state into a modern empire?",Feudal shogunate;Colonial territory;Imperial Confucian state;Military republic,a,HIS,75
+"Which event in 1923 caused hyperinflation so severe in Germany that people burned banknotes for warmth?",Occupation of the Ruhr by France and Belgium;The Treaty of Versailles;The Beer Hall Putsch;The Great Depression,a,HIS,80
+"What was the name of the last dynasty of imperial China, which fell in 1912?",Qing Dynasty;Ming Dynasty;Han Dynasty;Tang Dynasty,a,HIS,90
+"The Defenestration of Prague in 1618 helped ignite which major European conflict?",Thirty Years' War;Hundred Years' War;Seven Years' War;War of the Austrian Succession,a,HIS,90
+"Which ancient Greek general's tactical genius led to the defeat of a vastly larger Persian army at the Battle of Marathon?",Miltiades;Themistocles;Pericles;Leonidas,a,HIS,99
+"What was the primary language of administration and the Church in medieval Western Europe?",Latin;Greek;Old French;Church Slavonic,a,HIS,99
+"Which is the most widely practised religion in the world?",Christianity;Islam;Hinduism;Buddhism,a,REC,5
+"What is the holy book of Islam?",Quran;Torah;Bible;Vedas,a,REC,5
+"In which city is the Vatican located?",Rome;Jerusalem;Athens;Constantinople,a,REC,5
+"How many days is Ramadan observed for?",30;28;40;21,a,REC,5
+"What is the Jewish day of rest called?",Shabbat;Yom Kippur;Passover;Hanukkah,a,REC,10
+"The concept of karma originates from which religion?",Hinduism;Buddhism;Sikhism;Jainism,a,REC,10
+"Which city is sacred to Judaism, Christianity, and Islam?",Jerusalem;Mecca;Rome;Varanasi,a,REC,10
+"What is Diwali — the Festival of Lights — primarily a celebration of?",Victory of light over darkness;The harvest;The new year;The spring equinox,a,REC,10
+"Who founded the Sikh religion in the 15th century?",Guru Nanak;Guru Gobind Singh;Guru Arjan;Guru Ram Das,a,REC,15
+"What is the name of the holy pilgrimage that Muslims are expected to make to Mecca at least once in their lifetime?",Hajj;Umrah;Salat;Zakat,a,REC,15
+"In Buddhism, what is 'Nirvana'?",The state of liberation from suffering and the cycle of rebirth;The afterlife paradise;A form of meditation;The teachings of the Buddha,a,REC,15
+"The Talmud is a central text in which religion?",Judaism;Christianity;Islam;Zoroastrianism,a,REC,25
+"What is the name of the five pillars framework that structures the religious duties of Muslims?",Arkan al-Islam;Sharia;Sunna;Fiqh,a,REC,25
+"In Hinduism, the god Vishnu has had multiple avatars — which is considered the most famous?",Krishna;Rama;Narasimha;Matsya,a,REC,25
+"Which Roman Catholic sacrament involves the confession of sins to a priest?",Reconciliation;Eucharist;Baptism;Confirmation,a,REC,30
+"Zoroastrianism — one of the world's oldest religions — originated in which ancient region?",Persia (Iran);Egypt;Greece;Mesopotamia,a,REC,30
+"In Judaism, what is the name for the dietary laws governing what foods can and cannot be eaten?",Kashrut;Shabbat;Mizvot;Halal,a,REC,30
+"The Council of Nicaea in 325 AD was a pivotal moment for which religion — settling key doctrinal disputes?",Christianity;Islam;Judaism;Zoroastrianism,a,REC,45
+"In Hinduism, what are the four stages of life known collectively as?",Ashrama;Dharma;Moksha;Karma,a,REC,45
+"Which ancient Egyptian god was associated with the afterlife and the underworld?",Osiris;Ra;Horus;Anubis,a,REC,50
+"The Baha'i Faith originated in which country in the 19th century?",Iran;India;Iraq;Egypt,a,REC,50
+"In Sufi Islam, the 'whirling dervishes' belong to which order?",Mevlevi;Naqshbandi;Qadiri;Chishti,a,REC,60
+"The Book of Mormon is a sacred text — which faith considers it scripture alongside the Bible?",The Church of Jesus Christ of Latter-day Saints;Seventh-day Adventists;Jehovah's Witnesses;Christian Science,a,REC,60
+"In Buddhist cosmology, what is the name of the cycle of birth, death, and rebirth from which one seeks liberation?",Samsara;Nirvana;Karma;Dharma,a,REC,75
+"Which ancient Greek philosopher founded the Neoplatonist school, whose ideas significantly influenced early Christian theology?",Plotinus;Plato;Aristotle;Socrates,a,REC,75
+"What is the Bardо Thödol — commonly known in the West as the Tibetan Book of the Dead — used for?",Guiding the deceased through the intermediate state after death;A meditation manual for monks;A book of prayers for the living;A guide to reincarnation selection,a,REC,80
+"The Yazidi religion — practised by a minority in Iraq and Syria — regards which figure as a peacock angel?",Melek Taus;Iblis;Azrael;Gabriel,a,REC,90
+"Which religious tradition holds the concept of 'Ahimsa' (non-violence) as its highest ethical principle?",Jainism;Buddhism;Hinduism;Sikhism,a,REC,90
+"In Kabbalistic Judaism, what is the name of the mystical concept describing the 'vessels' that shattered during creation, scattering divine sparks?",Shevirat HaKelim;Ein Sof;Tzimtzum;Tikkun Olam,a,REC,99
+"The Mandaeans are one of the world's smallest and oldest religions — which prophet do they revere above all others?",John the Baptist;Moses;Abraham;Jesus,a,REC,99
+"Which philosopher wrote 'The Republic' describing an ideal state ruled by philosopher-kings?",Plato;Aristotle;Socrates;Thucydides,a,HIS,80
+"The 'Opium Wars' of the 19th century were fought between China and which power?",Britain;France;Russia;USA,a,HIS,80
+"Which treaty ended the Thirty Years' War in 1648 — establishing the modern concept of national sovereignty?",Peace of Westphalia;Treaty of Utrecht;Peace of Augsburg;Treaty of Versailles,a,HIS,80
+"Which Enlightenment thinker wrote 'The Social Contract' arguing that governments derive power from the people?",Jean-Jacques Rousseau;John Locke;Voltaire;Montesquieu,a,HIS,80
+"Which civilisation built the city of Teotihuacan near modern-day Mexico City?",Unknown (pre-Aztec);Aztec;Maya;Toltec,a,HIS,80
+"What is the term in Islam for the successor to the Prophet Muhammad as leader of the Muslim community?",Caliph;Imam;Sultan;Emir,a,REC,80
+"In Hinduism, what is the concept of 'dharma' most closely associated with?",Duty and cosmic order;The soul;Rebirth;Divine love,a,REC,80
+"Which Greek mathematician first calculated the circumference of the Earth using shadows and geometry?",Eratosthenes;Pythagoras;Euclid;Archimedes,a,MAT,80
+"What is the name for a number that equals the sum of its proper divisors — the first being 6?",Perfect number;Prime;Abundant;Deficient,a,MAT,80
+"Which 19th-century composer wrote the 'Unfinished Symphony' — a work with only two completed movements?",Schubert;Beethoven;Brahms;Schumann,a,MUS,80
+"In linguistics, what is the Sapir-Whorf hypothesis?",Language shapes thought and perception;Grammar evolves from biology;Children learn language through imitation;All languages share a universal grammar,a,LAN,80
+"Which sport's governing body is the FEI — and what does it govern?",Equestrian sports;Fencing;Ice skating;Extreme sports,a,SPO,80
+"Which computing pioneer is credited with the concept of the 'stored-program' computer — distinct from Turing?",John von Neumann;Alan Turing;Charles Babbage;Claude Shannon,a,TEC,80
+"What natural phenomenon creates the Northern Lights?",Solar wind particles hitting Earth's magnetic field;Moonlight refraction;Volcanic ash in the atmosphere;Bioluminescent ocean spray,a,GEO,80
+"Which language has the most native speakers in Africa?",Swahili;Hausa;Arabic;Yoruba,a,LAN,80
+"What fraction of the world's oxygen is produced by the Amazon Rainforest?",20%;50%;10%;35%,a,GEO,80
+"In music theory, what is a tritone?",An interval of six semitones (augmented fourth);Three notes played together;A triple time signature;A type of chord inversion,a,MUS,80
+"The 'prisoner's dilemma' is a concept from which field of study?",Game Theory;Economics;Political Science;Psychology,a,MAT,80

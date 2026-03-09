@@ -22,7 +22,8 @@ import game._
     val gs       = props.gs
     val question = gs.currentQuestion.get
     val correctText   = GameLogic.getCorrectAnswer(question)
-    val correctLetter = question.answer.toString
+    val correctIdx    = question.options.indexOf(question.correctAnswer)
+    val correctLetter = ('a' + correctIdx).toChar.toString
 
     val (resultClass, resultIcon, resultMsg) = if (gs.lastUserAnswer == "p") {
       ("result-pass", SvgIcons.ticket, "PASS USED \u2014 You advance!")

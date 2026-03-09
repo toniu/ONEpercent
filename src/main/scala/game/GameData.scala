@@ -21,9 +21,12 @@ object GameData {
     lines.flatMap { line =>
       val parts = line.split(",")
       if (parts.length >= 5) {
-        val options = parts(1).replaceAll("^\"|\"$", "").split(";").toList
+        val rawOptions = parts(1).replaceAll("^\"|\"$", "").split(";").toList
         val questionText = parts(0).replaceAll("^\"|\"$", "")
-        Some(Question(questionText, options, parts(2).trim.head, parts(3).trim, parts(4).trim.toInt))
+        val answerIdx = parts(2).trim.head - 'a'
+        val correctText = rawOptions(answerIdx)
+        val shuffledOptions = Random.shuffle(rawOptions)
+        Some(Question(questionText, shuffledOptions, correctText, parts(3).trim, parts(4).trim.toInt))
       } else None
     }
   }

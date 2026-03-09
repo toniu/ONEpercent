@@ -1,3 +1,3 @@
 package game
 
-case class Question(prompt: String, options: List[String], answer: Char, category: String, difficulty: Int)
+case class Question(prompt: String, options: List[String], correctAnswer: String, category: String, difficulty: Int)

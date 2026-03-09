@@ -47,13 +47,7 @@ object GameLogic {
     case _     => 0
   }
 
-  def getCorrectAnswer(question: Question): String = question.answer match {
-    case 'a' => question.options(0)
-    case 'b' => question.options(1)
-    case 'c' => question.options(2)
-    case 'd' => question.options(3)
-    case _   => "Unknown"
-  }
+  def getCorrectAnswer(question: Question): String = question.correctAnswer
 
   def getCategoryName(code: String): String = code match {
     case "GEN" => "General Knowledge"

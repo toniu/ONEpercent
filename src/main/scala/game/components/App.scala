@@ -39,8 +39,10 @@ import game._
 
     def handleAnswer(answer: String): Unit = {
       val question = state.currentQuestion.get
+      val correctIdx = question.options.indexOf(question.correctAnswer)
+      val correctLetter = ('a' + correctIdx).toChar.toString
       val isCorrect = if (answer == "p") true
-                      else answer == question.answer.toString
+                      else answer == correctLetter
 
       val newUserEliminated = if (!state.userEliminated && answer != "p" && !isCorrect) true
                               else state.userEliminated
