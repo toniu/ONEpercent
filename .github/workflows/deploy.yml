@@ -50,8 +50,11 @@ jobs:
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
 
-      - name: Debug to confirm token can see Pages projects
-        run: npx -y wrangler@3.90.0 pages project list
+      # Debug step: keep until deploy works, then you can delete it
+      - name: Debug to list Pages projects visible to this token
+        run: |
+          npx -y wrangler@3.90.0 --version
+          npx -y wrangler@3.90.0 pages project list --account-id "${CLOUDFLARE_ACCOUNT_ID}"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -61,4 +64,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=one-percent --commit-dirty=true
+          command: pages deploy dist --project-name=one-percent --account-id ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} --commit-dirty=true
