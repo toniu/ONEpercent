@@ -30,15 +30,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install npm dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Scala.js + webpack
         run: sbt 'Compile / fastOptJS / webpack'
 
       - name: Assemble deploy folder
         run: |
+          rm -rf dist
           mkdir -p dist
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-bundle.js dist/
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-library.js dist/
@@ -47,6 +49,13 @@ jobs:
           cp src/main/resources/index.html dist/
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
+
+      # Temporary debug step: remove once the deploy is consistently working
+      - name: Debug: confirm token can see Pages projects
+        run: npx -y wrangler@3.90.0 pages project list
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
