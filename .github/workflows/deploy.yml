@@ -50,8 +50,7 @@ jobs:
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
 
-      # Temporary debug step: remove once the deploy is consistently working
-      - name: Debug: confirm token can see Pages projects
+      - name: Debug to confirm token can see Pages projects
         run: npx -y wrangler@3.90.0 pages project list
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
