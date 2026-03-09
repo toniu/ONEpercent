@@ -45,16 +45,30 @@ jobs:
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-bundle.js dist/
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-library.js dist/
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-loader.js dist/
-          cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-loader.js dist/
           cp target/scala-2.13/scalajs-bundler/main/one-percent-fastopt-entrypoint.js dist/
           cp src/main/resources/index.html dist/
           cp src/main/resources/style.css dist/
           cp -r src/main/resources/logos dist/
 
-      # Debug: proves what account/projects your token can actually see
-      - name: "Debug - verify token + list Pages projects"
+      - name: "Debug - verify secrets present + list Pages projects"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          set -euxo pipefail
+          set -euo pipefail
+
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "ERROR: CLOUDFLARE_API_TOKEN is empty/missing"
+            exit 1
+          fi
+
+          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "ERROR: CLOUDFLARE_ACCOUNT_ID is empty/missing"
+            exit 1
+          fi
+
+          echo "Token is present (not printing it)."
+          echo "Account ID is present: ${#CLOUDFLARE_ACCOUNT_ID} chars"
 
           echo "== Token verify =="
           curl -sS -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
@@ -68,7 +82,6 @@ jobs:
             -H "Content-Type: application/json"
           echo ""
 
-      # Deploy is disabled until the debug step shows the project exists in this account
       - name: Deploy to Cloudflare Pages
         if: false
         uses: cloudflare/wrangler-action@v3
