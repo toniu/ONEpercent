@@ -1,4 +1,4 @@
-name: Cloudflare Debug (tokens + accounts + pages)
+name: Cloudflare Debug (token + accounts + pages)
 
 on:
   workflow_dispatch:
@@ -10,17 +10,12 @@ jobs:
       contents: read
 
     steps:
-      - name: Verify token + list accounts + list Pages projects for the secret account id
+      - name: Verify token, list accounts, list pages projects
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-
-          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
-            echo "ERROR: CLOUDFLARE_API_TOKEN is empty/missing"
-            exit 1
-          fi
 
           echo "== Token verify =="
           curl -sS "https://api.cloudflare.com/client/v4/user/tokens/verify" \
@@ -30,19 +25,14 @@ jobs:
           echo ""
 
           echo "== Accounts visible to this token (IMPORTANT) =="
-          curl -sS "https://api.cloudflare.com/client/v4/accounts?page=1&per_page=100" \
+          curl -sS "https://api.cloudflare.com/client/v4/accounts" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json"
           echo ""
           echo ""
 
-          if [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
-            echo "== Pages projects for CLOUDFLARE_ACCOUNT_ID=${#CLOUDFLARE_ACCOUNT_ID} chars (value masked in logs) =="
-            curl -sS "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects?page=1&per_page=100" \
-              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-              -H "Content-Type: application/json"
-            echo ""
-            echo ""
-          else
-            echo "NOTE: CLOUDFLARE_ACCOUNT_ID secret is not set; skipping Pages projects list for a specific account."
-          fi
+          echo "== Pages projects for account (from secret) =="
+          curl -sS "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects?per_page=20" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json"
+          echo ""
