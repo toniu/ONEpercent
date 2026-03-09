@@ -1,4 +1,4 @@
-name: Cloudflare Debug (token + accounts + pages)
+name: Cloudflare Debug (print account ids)
 
 on:
   workflow_dispatch:
@@ -10,29 +10,31 @@ jobs:
       contents: read
 
     steps:
-      - name: Verify token, list accounts, list pages projects
+      - name: List accounts (print id + name)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
 
-          echo "== Token verify =="
-          curl -sS "https://api.cloudflare.com/client/v4/user/tokens/verify" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json"
-          echo ""
-          echo ""
-
-          echo "== Accounts visible to this token (IMPORTANT) =="
-          curl -sS "https://api.cloudflare.com/client/v4/accounts" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json"
-          echo ""
-          echo ""
-
-          echo "== Pages projects for account (from secret) =="
-          curl -sS "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json"
-          echo ""
+          echo "== Accounts visible to this token (ID + Name) =="
+          python - <<'PY'
+          import json, urllib.request, os
+          
+          token = os.environ["CLOUDFLARE_API_TOKEN"]
+          req = urllib.request.Request(
+              "https://api.cloudflare.com/client/v4/accounts",
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(req) as resp:
+              data = json.load(resp)
+          
+          results = data.get("result") or []
+          if not results:
+              print("No accounts returned.")
+          else:
+              for a in results:
+                  print(f'id={a.get("id")}  name={a.get("name")}')
+          PY
