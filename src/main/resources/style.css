@@ -584,7 +584,7 @@ html, body, #root {
 
 .elim-list {
   list-style: none;
-  max-height: 220px;
+  max-height: 320px;
   overflow-y: auto;
   padding: 0.2rem;
   border-radius: 4px;
@@ -894,7 +894,7 @@ html, body, #root {
   .winner-avatar { width: 38px; height: 50px; }
   .icon-trophy-lg { width: 32px; height: 32px; }
   .congrats-text { font-size: 0.8rem; }
-  .elim-list     { max-height: 130px; }
+  .elim-list     { max-height: 260px; }
   .mini-logo     { width: 42px; }
   .btn-large     { font-size: 0.75rem; padding: 0.5rem 1.6rem; }
   .intro-logo    { max-width: 240px; }
@@ -912,7 +912,7 @@ html, body, #root {
   .option-btn      { padding: 0.25rem 0.6rem; min-height: 28px; gap: 0.4rem; }
   .option-letter   { width: 22px; height: 22px; font-size: 0.6rem; }
   .option-text     { font-size: 0.75rem; }
-  .elim-list       { max-height: 100px; }
+  .elim-list       { max-height: 220px; }
   .gold-text       { font-size: 0.6rem; }
   .result-message  { font-size: 0.75rem; }
   .remaining-box   { padding: 0.2rem 0.6rem; }
@@ -953,7 +953,7 @@ html, body, #root {
   .q-header        { padding: 0.15rem 0.5rem; gap: 0.3rem; }
   .option-btn      { min-height: 24px; padding: 0.2rem 0.5rem; }
   .option-letter   { width: 18px; height: 18px; font-size: 0.5rem; }
-  .elim-list       { max-height: 100px; }
+  .elim-list       { max-height: 180px; }
   .winner-content  { gap: 0.3rem; }
   .winner-title    { font-size: 1.2rem; }
 }
