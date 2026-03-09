@@ -65,7 +65,7 @@ import game.Player
             h1(className := "winner-title")("NO WINNERS"),
             p(className := "winner-subtitle")("EVERYONE ELIMINATED"),
             div(className := "separator"),
-            p(className := "congrats-text")("Nobody made it through! Better luck next time.")
+            p(className := "congrats-text")("No one overcame the ONE% challenge this time. Better luck next time!")
           )
         } else if (winners.length == 1) {
           /* Single winner */
@@ -156,7 +156,7 @@ import game.Player
                   span(className := "icon-inline", dangerouslySetInnerHTML := js.Dynamic.literal("__html" -> SvgIcons.sparkles))
                 )
               } else {
-                span(s"${winners.length} players made it through! Better luck next time!")
+                span(s"${winners.length} players are winners of the ONE% challenge!")
               }
             )
           )

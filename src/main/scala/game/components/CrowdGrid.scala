@@ -2,6 +2,7 @@ package game.components
 
 import slinky.core._
 import slinky.core.annotations.react
+import slinky.core.facade.Hooks._
 import slinky.web.html._
 
 import scala.scalajs.js
@@ -32,7 +33,8 @@ object RegionColors {
   case class Props(
     allPlayers: List[Player],
     remainingPlayers: List[Player],
-    eliminatedPlayers: List[Player]
+    eliminatedPlayers: List[Player],
+    lastRoundEliminated: List[Player] = List()
   )
 
   private val lime       = "#c3fc02"
@@ -61,22 +63,47 @@ object RegionColors {
   val component: FunctionalComponent[Props] = FunctionalComponent[Props] { props =>
     val total = 100
 
+    /* Delayed fade: newly eliminated players start as "active", then flip to
+       "eliminated" after a short delay so the CSS transition is visible. */
+    val (showEliminated, setShowEliminated) = useState(false)
+
+    useEffect(() => {
+      if (props.lastRoundEliminated.nonEmpty) {
+        val timer = js.timers.setTimeout(300) { setShowEliminated(true) }
+        () => js.timers.clearTimeout(timer)
+      } else {
+        setShowEliminated(true)
+        () => ()
+      }
+    }, Seq(props.lastRoundEliminated.length))
+
     div(className := "crowd-grid")(
       (0 until total).map { i =>
         val playerOpt    = if (i < props.allPlayers.length) Some(props.allPlayers(i)) else None
         val isEliminated = playerOpt.exists(p => props.eliminatedPlayers.contains(p))
+        val isNewlyEliminated = playerOpt.exists(p => props.lastRoundEliminated.contains(p))
         val isActive     = playerOpt.exists(p => props.remainingPlayers.contains(p))
         val isYou        = playerOpt.exists(_.name == "You")
 
         val tooltipName = playerOpt.map(p => s"${p.name} — ${p.location}").getOrElse("Empty")
+
+        /* If this player was just eliminated this round and the delay hasn't
+           fired yet, render them with their original colours + "active" class
+           so the transition from active → eliminated is visible. */
+        val deferElim = isNewlyEliminated && !showEliminated
 
         val (svgHtml, cls) = playerOpt match {
           case None =>
             (stickmanSvg(emptyColor, emptyColor, glow = false), "stickman-cell empty")
           case Some(p) if isYou && isActive =>
             (stickmanSvg(lime, lime, glow = true), "stickman-cell you")
+          case Some(p) if isYou && deferElim =>
+            (stickmanSvg(lime, lime, glow = true), "stickman-cell active")
           case Some(p) if isYou && isEliminated =>
             (stickmanSvg(elimGray, elimGray, glow = false), "stickman-cell eliminated")
+          case Some(p) if deferElim =>
+            val bodyColor = RegionColors.get(p.region)
+            (stickmanSvg(p.skinTone, bodyColor, glow = false), "stickman-cell active")
           case Some(p) if isEliminated =>
             (stickmanSvg(elimGray, elimGray, glow = false), "stickman-cell eliminated")
           case Some(p) if isActive =>

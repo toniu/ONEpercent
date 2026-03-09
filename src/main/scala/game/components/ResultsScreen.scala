@@ -51,7 +51,7 @@ import game._
       ProgressBar(ProgressBar.Props(gs.currentRound)),
 
       /* Crowd grid */
-      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers)),
+      CrowdGrid(CrowdGrid.Props(gs.allPlayers, gs.remainingPlayers, gs.eliminatedPlayers, gs.lastRoundEliminated)),
 
       /* Correct answer */
       h2(className := "gold-text")("CORRECT ANSWER"),
