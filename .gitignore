@@ -1,3 +1,7 @@
 /.bsp/
+/.bloop/
+/.metals/
 target/
 .private/
+*.class
+*.semanticdb

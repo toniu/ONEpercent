@@ -415,6 +415,26 @@ html, body, #root {
 
 .option-text { font-size: 1.05rem; font-weight: 600; }
 
+/* Staged reveal — individual options fade in one by one */
+.option-unrevealed {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.option-btn:not(.option-unrevealed) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Reading phase — options visible but not yet interactive */
+.options-reading {
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
 /* Spectator / eliminated — options are non-interactive */
 .options-spectator {
   pointer-events: none;
@@ -467,6 +487,10 @@ html, body, #root {
 }
 .countdown-critical .countdown-ring {
   animation: ringPulse 0.6s ease-in-out infinite alternate;
+}
+.countdown-paused {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 @keyframes ringPulse {
   from { filter: drop-shadow(0 0 8px rgba(220,20,60,0.4)); }
@@ -680,7 +704,7 @@ html, body, #root {
 
 .elim-list {
   list-style: none;
-  max-height: 320px;
+  max-height: 200px;
   overflow-y: auto;
   padding: 0.2rem;
   border-radius: 4px;
@@ -990,7 +1014,7 @@ html, body, #root {
   .winner-avatar { width: 38px; height: 50px; }
   .icon-trophy-lg { width: 32px; height: 32px; }
   .congrats-text { font-size: 0.8rem; }
-  .elim-list     { max-height: 260px; }
+  .elim-list     { max-height: 180px; }
   .mini-logo     { width: 42px; }
   .btn-large     { font-size: 0.75rem; padding: 0.5rem 1.6rem; }
   .intro-logo    { max-width: 240px; }
@@ -1008,7 +1032,7 @@ html, body, #root {
   .option-btn      { padding: 0.25rem 0.6rem; min-height: 28px; gap: 0.4rem; }
   .option-letter   { width: 22px; height: 22px; font-size: 0.6rem; }
   .option-text     { font-size: 0.75rem; }
-  .elim-list       { max-height: 220px; }
+  .elim-list       { max-height: 160px; }
   .gold-text       { font-size: 0.6rem; }
   .result-message  { font-size: 0.75rem; }
   .remaining-box   { padding: 0.2rem 0.6rem; }
@@ -1049,7 +1073,7 @@ html, body, #root {
   .q-header        { padding: 0.15rem 0.5rem; gap: 0.3rem; }
   .option-btn      { min-height: 24px; padding: 0.2rem 0.5rem; }
   .option-letter   { width: 18px; height: 18px; font-size: 0.5rem; }
-  .elim-list       { max-height: 180px; }
+  .elim-list       { max-height: 130px; }
   .winner-content  { gap: 0.3rem; }
   .winner-title    { font-size: 1.2rem; }
 }

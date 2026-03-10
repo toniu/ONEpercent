@@ -26,6 +26,8 @@ import game._
     val (selectedAnswer, setSelectedAnswer) = useState[Option[String]](None)
     val (timeLeft, setTimeLeft)             = useState(TotalTime)
     val (confirmed, setConfirmed)           = useState(false)
+    val (visibleOptions, setVisibleOptions) = useState(0)
+    val (readingPhase, setReadingPhase)      = useState(true)
     val timeRef      = useRef(TotalTime)
     val confirmedRef = useRef(false)
 
@@ -34,14 +36,32 @@ import game._
       setSelectedAnswer(None)
       setTimeLeft(TotalTime)
       setConfirmed(false)
+      setVisibleOptions(0)
+      setReadingPhase(true)
       timeRef.current = TotalTime
       confirmedRef.current = false
       ()
     }, Seq(gs.currentRound))
 
-    /* ── Countdown timer (active players only) ─────────── */
+    val totalOptions = question.options.length
+
+    /* ── Staged reveal: show options one by one, then start countdown ── */
     useEffect(() => {
-      if (!gs.userEliminated && !confirmed) {
+      if (visibleOptions < totalOptions) {
+        val delay = if (visibleOptions == 0) 3000 else 500
+        val t = js.timers.setTimeout(delay.toDouble) { setVisibleOptions(visibleOptions + 1) }
+        () => js.timers.clearTimeout(t)
+      } else if (readingPhase) {
+        val t2 = js.timers.setTimeout(1000) { setReadingPhase(false) }
+        () => js.timers.clearTimeout(t2)
+      } else {
+        () => ()
+      }
+    }, Seq(visibleOptions, readingPhase, gs.currentRound))
+
+    /* ── Countdown timer (active players only, after reading phase) ── */
+    useEffect(() => {
+      if (!gs.userEliminated && !confirmed && !readingPhase) {
         val intervalId = js.timers.setInterval(1000) {
           if (!confirmedRef.current) {
             timeRef.current = timeRef.current - 1
@@ -56,7 +76,7 @@ import game._
       } else {
         () => ()
       }
-    }, Seq(gs.userEliminated, confirmed, gs.currentRound))
+    }, Seq(gs.userEliminated, confirmed, readingPhase, gs.currentRound))
 
     def handleConfirm(): Unit = {
       selectedAnswer.foreach { answer =>
@@ -106,7 +126,8 @@ import game._
 
       /* Countdown ring timer (active players only) */
       if (!gs.userEliminated && !confirmed) {
-        div(className := s"countdown-container${if (timeLeft <= 5) " countdown-critical" else ""}",
+        val readingClass = if (readingPhase) " countdown-paused" else ""
+        div(className := s"countdown-container${if (timeLeft <= 5) " countdown-critical" else ""}$readingClass",
           dangerouslySetInnerHTML := js.Dynamic.literal("__html" ->
             s"""<svg viewBox="0 0 120 120" class="countdown-ring">
                |  <circle class="countdown-bg" cx="60" cy="60" r="$Radius"/>
@@ -127,16 +148,17 @@ import game._
         p(className := "question-text")(question.prompt)
       ),
 
-      /* Options — click to select, not to submit */
-      div(className := s"options-container${if (gs.userEliminated || confirmed) " options-spectator" else ""}")(
+      /* Options — staged reveal one by one: hidden → reading → interactive */
+      div(className := s"options-container${if (gs.userEliminated || confirmed) " options-spectator" else if (readingPhase) " options-reading" else ""}")(
         question.options.zipWithIndex.map { case (opt, idx) =>
           val letter = ('a' + idx).toChar.toString
           val isSelected = selectedAnswer.contains(letter)
           val selClass = if (isSelected) " selected" else ""
+          val visible = idx < visibleOptions
           div(
             key := letter,
-            className := s"option-btn stagger-$idx$selClass",
-            onClick := (_ => if (!gs.userEliminated && !confirmed) {
+            className := s"option-btn${if (visible) s" stagger-$idx" else " option-unrevealed"}$selClass",
+            onClick := (_ => if (visible && !gs.userEliminated && !confirmed && !readingPhase) {
               setSelectedAnswer(
                 if (selectedAnswer.contains(letter)) None else Some(letter)
               )
